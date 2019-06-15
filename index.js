@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express'); 
 const massive = require('massive'); 
 const axios = require('axios');  
-const controller = require("./server/controller");
+const authenticate = require("./controller/authController");
+// const recipes? = require("./controller/authController");
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 
@@ -25,6 +26,14 @@ massive(process.env.CONNECTION_STRING)
         console.log('the db is connected')
     })
     .catch(err => console.log('err in the db'));
+
+// authie endpoints 
+app.post('/api/auth/login', authenticate.login); 
+app.post('/api/auth/register', authenticate.register); 
+app.get('/api/auth/me', authenticate.authMe); 
+app.post('/api/auth/logout', authenticate.logout); 
+
+
 
 
   const port = process.env.port || 4011;

@@ -5,20 +5,42 @@ import React, { Component } from 'react'
 import './Register.css'; 
 
 class Register extends Component {
-    // constructor(props){
-    //     super(props); 
 
-    // }
+     state = {
+            first_name : '',
+            last_name : '',
+            email : '',
+            password : '',
+            calories : '',
+            net_carbs : '',
+            fat : '',
+            protein : '', 
+    }
 
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
+    register = () => {
+        debugger
+        this.setState({ 
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            calories: this.state.calories,
+            net_carbs: this.state.net_carbs,
+            fat: this.state.fat,
+            protein: this.state.protein,
+        })
+    }
+ 
+    handleInputChange= (e) => {
+        const target = e.target; 
+        const value = target.value; 
+        const name = target.name; 
       
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
+        this.setState({
+          [name] :value
+        }); 
+        console.log("state change", this.state); 
+      }
 
     render() {
         return (
@@ -29,25 +51,45 @@ class Register extends Component {
                         <div>
                             <label htmlFor="">
                                 First Name: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="first_name"
+                                    value={this.state.first_name}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Last Name: 
-                                <input type="text"/>
-                            </label>
+                                <input 
+                                    type="text"
+                                    name="last_name"
+                                    value={this.state.last_name}
+                                    onChange={this.handleInputChange}
+                                />                      
+                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Email: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="email"
+                                    value={this.state.email}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Password: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="password"
+                                    value={this.state.value}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                     </div>
@@ -57,27 +99,52 @@ class Register extends Component {
                         <div>
                             <label htmlFor="">
                                 Calories:  
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="calories"
+                                    value={this.state.calories}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Net Carbs: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="net_carbs"
+                                    value={this.state.net_carbs}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Fat: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="fat"
+                                    value={this.state.fat}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Protein: 
-                                <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="protein"
+                                    value={this.state.protein}
+                                    onChange={this.handleInputChange}
+                                /> 
                             </label>
                         </div>
+                    </div>
+                    <div>
+                        <label htmlFor="">
+                            <button onClick={this.register}>Register User</button>
+                        </label>
                     </div>
                 </div>
             </div>

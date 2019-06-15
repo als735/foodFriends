@@ -32,6 +32,8 @@ class Header extends Component {
                     <div>
                         User Picture
                     </div>
+                    {/* https://robohash.org/abby?set=set4 */}
+
                         <Link to="/" classname='links'>
                         <button>Logout</button>
                         </Link>

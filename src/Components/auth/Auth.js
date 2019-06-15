@@ -2,26 +2,37 @@
 import React, { Component } from 'react'
 // import axios from 'axios'; 
 // import { connect } from 'react-redux';
+// import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './Auth.css'; 
 import {Link} from "react-router-dom";
  
 
 class Auth extends Component {
-    // constructor(props){
-    //     super(props); 
 
-    // }
+        state = {
+            email: '',
+            password: ''
+        
+    }
+    
+    login = () => {
+        this.setState({
+            email: this.state.email,
+            password: this.state.password 
+        })
+    }
 
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
+    handleInputChange= (e) => {
+        const target = e.target; 
+        const value = target.value; 
+        const name = target.name; 
       
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
+        this.setState({
+          [name] :value
+        }); 
+        console.log("state change", this.state); 
+      }
 
     render() {
 
@@ -33,17 +44,27 @@ class Auth extends Component {
                         <div>
                             <label htmlFor="">
                                 Email: 
-                            <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="email"
+                                    value={this.state.email}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
                         <div>
                             <label htmlFor="">
                                 Password: 
-                            <input type="text"/>
+                                <input 
+                                    type="text"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}
+                                />
                             </label>
                         </div>
-                        <button>Login</button>
-                        <Link to="/register" classname='links'>
+                        <button onClick={this.login}>Login</button>
+                        <Link to="/register" className='links'>
                             <button>Register Here</button>
                         </Link>
                     </div>
@@ -54,4 +75,5 @@ class Auth extends Component {
     }
 }
 
+// export default connect(state => state, actions)(Auth);
 export default Auth;

@@ -6,8 +6,8 @@
 
 .usersInfo {
     /* margin-top:20px;  */
-    height: 14vh; 
-    width: 30vh; 
+    height: 150px; 
+    width: 250px; 
     margin-left: 40px; 
     /* padding: 10px;  */
     outline: 3px solid black;
@@ -15,11 +15,12 @@
 
 .usersMacros {
       /* margin-top:20px;  */
-      height: 14vh; 
-      width: 30vh; 
+      height: 150px; 
+      width: 250px; 
       margin-left: 40px; 
       /* padding: 10px;  */
       outline: 3px solid black;
+      margin-bottom: 20px; 
 }
 
 h2 {
