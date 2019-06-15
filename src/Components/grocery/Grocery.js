@@ -24,7 +24,7 @@ class Grocery extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='groceryPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
                 Groceries  

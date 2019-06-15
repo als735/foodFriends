@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 // import axios from 'axios'; 
 // import { connect } from 'react-redux';
 import './Header.css'; 
+import {Link} from "react-router-dom";
+
 
 class Header extends Component {
     // constructor(props){
@@ -17,16 +19,24 @@ class Header extends Component {
       
     //     this.setState({
     //       [name] :value
-    //     }); 
+    //     });  
     //   }
 
     render() {
 
         return (
             <div className='headerPage'>
+                <h1 id="header1"> Friends <i>with</i> Food</h1>
 
-                Header 
-
+                <div className='userBox'>
+                    <div>
+                        User Picture
+                    </div>
+                        <Link to="/" classname='links'>
+                        <button>Logout</button>
+                        </Link>
+                </div>
+ 
             </div>
         )
     }

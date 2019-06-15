@@ -24,7 +24,7 @@ class MealCard extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='mealCardPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
 

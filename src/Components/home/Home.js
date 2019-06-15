@@ -24,7 +24,7 @@ class Home extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='homePage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
 

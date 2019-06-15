@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 // import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './Auth.css'; 
+import {Link} from "react-router-dom";
+
 
 class Auth extends Component {
     // constructor(props){
@@ -26,10 +28,27 @@ class Auth extends Component {
         return (
             <div className='authPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                 <div className='authiebox'>
+                    <div>
+                        <div>
+                            <label htmlFor="">
+                                Email: 
+                            <input type="text"/>
+                            </label>
+                        </div>
+                        <div>
+                            <label htmlFor="">
+                                Password: 
+                            <input type="text"/>
+                            </label>
+                        </div>
+                        <button>Login</button>
+                        <Link to="/register" classname='links'>
+                            <button>Register Here</button>
+                        </Link>
+                    </div>
 
-
-                Authie 
-
+                 </div>
             </div>
         )
     }

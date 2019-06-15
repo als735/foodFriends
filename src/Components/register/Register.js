@@ -24,7 +24,7 @@ class Register extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='registerPage'>
                  {/* {this.props.location.pathname !== '/' ? <Nav/> : ' '} */}
 
 

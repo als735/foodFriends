@@ -24,7 +24,7 @@ class RecipeForm extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='recipeFormPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
 

@@ -24,7 +24,7 @@ class LunchBox extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='lunchBoxPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
 

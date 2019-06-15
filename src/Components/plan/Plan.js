@@ -24,7 +24,7 @@ class Plan extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='planPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
 

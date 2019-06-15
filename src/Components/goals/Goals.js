@@ -24,7 +24,7 @@ class Goals extends Component {
     render() {
 
         return (
-            <div className='authPage'>
+            <div className='goalsPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
 
                 Goalsies  

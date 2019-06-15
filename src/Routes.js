@@ -11,7 +11,7 @@ import Plan from "./Components/plan/Plan";
 import RecipeForm from "./Components/recipeForm/RecipeForm"; 
 import Register from "./Components/register/Register"; 
 
-export default (
+export default ( 
     <Switch>
         <Route exact path="/" component={Auth}/>
         <Route path="/goals" component={Goals}/>
