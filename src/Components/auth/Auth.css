@@ -1,0 +1,20 @@
+.authPage {
+    width: 100%;
+    height: 550px;
+    padding-top: 175px;
+    background-color: rgb(139, 223, 207); 
+    /* background: linear-gradient(to right, rgb(112, 245, 255) 0%, rgb(112, 255, 231) 33%, rgb(112, 179, 255) 66%, rgb(112, 179, 255) 100%); */
+    color: white;
+    font-size: 16px;
+    font-family: inherit; 
+}
+
+
+.authieBox {
+    height: 65vh; 
+    width: 60vh; 
+    background: linear-gradient(to right, #ff7d6d 0%, #ffd270 100%);
+    
+    margin: auto;
+    padding: 20px; 
+}

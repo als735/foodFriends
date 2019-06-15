@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import Nav from '../nav/Nav' ; 
 import './Auth.css'; 
 import {Link} from "react-router-dom";
-
+ 
 
 class Auth extends Component {
     // constructor(props){
@@ -28,7 +28,7 @@ class Auth extends Component {
         return (
             <div className='authPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-                 <div className='authiebox'>
+                 <div className='authieBox'>
                     <div>
                         <div>
                             <label htmlFor="">

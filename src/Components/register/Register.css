@@ -1,0 +1,27 @@
+.registerPage {
+    margin: auto; 
+    padding-top: 50px; 
+}
+
+
+.usersInfo {
+    /* margin-top:20px;  */
+    height: 14vh; 
+    width: 30vh; 
+    margin-left: 40px; 
+    /* padding: 10px;  */
+    outline: 3px solid black;
+}
+
+.usersMacros {
+      /* margin-top:20px;  */
+      height: 14vh; 
+      width: 30vh; 
+      margin-left: 40px; 
+      /* padding: 10px;  */
+      outline: 3px solid black;
+}
+
+h2 {
+    margin: 25px; 
+}
