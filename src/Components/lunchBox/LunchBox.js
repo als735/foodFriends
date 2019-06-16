@@ -25,10 +25,9 @@ class LunchBox extends Component {
 
         return (
             <div className='lunchBoxPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                <h1 className='title'>Lunch Box</h1>
 
-
-                Lunchie Boxie  
+                 {this.props.location.pathname !== '/' ? <Nav/> : ' '} 
 
             </div>
         )

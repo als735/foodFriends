@@ -25,11 +25,9 @@ class Plan extends Component {
 
         return (
             <div className='planPage'>
+                <h1 className='title'>Meal Plan</h1>
+
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-
-
-                Plannie Plan  
-
             </div>
         )
     }

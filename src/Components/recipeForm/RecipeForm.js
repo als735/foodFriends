@@ -25,11 +25,10 @@ class RecipeForm extends Component {
 
         return (
             <div className='recipeFormPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                 
+            <h1 className='title'>Make a Meal</h1>
 
-
-                Recipe Formsies   
-
+            {this.props.location.pathname !== '/' ? <Nav/> : ' '}
             </div>
         )
     }

@@ -25,9 +25,8 @@ class Goals extends Component {
 
         return (
             <div className='goalsPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-
-                Goalsies  
+                <h1 className='titlePage'>Goals</h1>
+                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}  
 
             </div>
         )
