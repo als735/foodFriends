@@ -2,7 +2,7 @@
     width: 100%;
     color: #723D46;
     margin: auto;
-    padding: 5px;  
+    padding-bottom: 1px;  
     background-color: #B6C197;  
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2);  
 }
@@ -10,12 +10,12 @@
 #header1  {
     margin-left: 200px;
     font-family: Georgia, Times, 'Times New Roman', serif;
-    font-size: 55pt;
+    font-size: 65pt;
 }
 
 .logout { 
     margin-left: 425px; 
-    padding: 2px; 
+    padding-top: 5px; 
     width: 50px;
     /* padding: 10px;  */
 }

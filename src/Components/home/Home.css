@@ -1,3 +1,24 @@
 .titlePage {
-     
+        width: 350px; 
+        height: 100px; 
+        z-index : 1;
+        position: absolute; 
+        background-color: #93B7BE; 
+        font-size: 60pt; 
+        margin-left: 1010px;
+        margin-top: 235px; 
+        text-align: center;  
+        border: solid 2pt #723D46; 
+        color: #5B4C51;
+        box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2)
+        }
+
+
+.introH {
+        margin-left: 250px; 
+}
+
+.introP {
+        margin-left: 275px; 
+        width: 350px; 
 }

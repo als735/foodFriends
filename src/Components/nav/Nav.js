@@ -32,7 +32,7 @@ class Nav extends Component {
                 <Header/>
                 <div className='navBar'>
                     <div>
-                        <Link to='/home' className='links'>
+                        <Link to='/home' className='linksHome'>
                             <img className="navieButton" src={navieHome} alt=""/> 
                         </Link>
                     </div>
