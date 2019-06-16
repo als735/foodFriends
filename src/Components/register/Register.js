@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
-// import axios from 'axios'; 
-// import { connect } from 'react-redux';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import * as actions from '../../Ducks/action_creator';
 import './Register.css'; 
 
 class Register extends Component {
@@ -18,8 +19,8 @@ class Register extends Component {
     }
 
     register = () => {
-        debugger
-        this.setState({ 
+        debugger; 
+        const registerObj = {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
             email: this.state.email,
@@ -27,9 +28,18 @@ class Register extends Component {
             calories: this.state.calories,
             net_carbs: this.state.net_carbs,
             fat: this.state.fat,
-            protein: this.state.protein,
-        })
-    }
+            protein: this.state.protein
+        }; 
+        axios.post('/api/auth/register', registerObj).then(({ data }) => {
+            debugger; 
+            if (data.success) {
+                this.props.setUser(data.user); 
+                this.props.history.push('/home'); 
+            } else {
+                alert('Invalid Registration')
+            }
+        }); 
+    }; 
  
     handleInputChange= (e) => {
         const target = e.target; 
@@ -152,4 +162,5 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default connect(state => state, actions)(Register);
+// export default Register;

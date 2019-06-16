@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react'
-// import axios from 'axios'; 
-// import { connect } from 'react-redux';
-// import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './Auth.css'; 
+import { connect } from 'react-redux';
+import * as actions from '../../Ducks/action_creator';
 import {Link} from "react-router-dom";
+import axios from 'axios';
  
 
 class Auth extends Component {
@@ -14,14 +14,23 @@ class Auth extends Component {
             email: '',
             password: ''
         
-    }
+    }; 
     
     login = () => {
-        this.setState({
+        debugger; 
+        const loginObj = {
             email: this.state.email,
             password: this.state.password 
-        })
-    }
+        }; 
+        axios.post('/api/auth/login', loginObj).then(({ data }) => {
+            if(data.success) {
+                this.props.setUser(data.user);
+                this.props.history.push('/home'); 
+            } else {
+                alert('Invalid Username or Password'); 
+            }
+        }); 
+    }; 
 
     handleInputChange= (e) => {
         const target = e.target; 
@@ -75,5 +84,5 @@ class Auth extends Component {
     }
 }
 
-// export default connect(state => state, actions)(Auth);
-export default Auth;
+export default connect(state => state, actions)(Auth);
+// export default Auth;
