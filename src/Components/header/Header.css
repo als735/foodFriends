@@ -1,18 +1,28 @@
 .headerPage {
     width: 100%;
-    color: #0d8ee4;
+    color: #723D46;
     margin: auto;
-    padding: 10px;  
-    background-color: antiquewhite;  
-    box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2); 
+    padding: 5px;  
+    background-color: #B6C197;  
+    box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2);  
 }
 
 #header1  {
-    text-align: center; 
-    font-family: Georgia, Times, 'Times New Roman', serif;   
-    font-size: 30pt; 
+    margin-left: 200px;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 55pt;
 }
 
-.userBox {
-    
+.logout { 
+    margin-left: 425px; 
+    padding: 2px; 
+    width: 50px;
+    /* padding: 10px;  */
+}
+
+.navImages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }

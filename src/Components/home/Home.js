@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 // import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './Home.css'; 
-
+ 
 class Home extends Component {
     // constructor(props){
     //     super(props); 
@@ -26,10 +26,7 @@ class Home extends Component {
         return (
             <div className='homePage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-
-
-                Homesies  
-
+            <h2 className='titlePage'>Home</h2>  
             </div>
         )
     }

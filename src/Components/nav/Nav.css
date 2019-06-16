@@ -5,6 +5,27 @@
     top: 0;
     left: 0;
     padding-top: 20px;
-    background-color: antiquewhite;
+    background-color: #785964;
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2); 
+}
+
+.links {
+    margin: 20px; 
+    font-weight: bold;
+    position: relative;
+    padding: 15px 32px;
+    background-color: #9DB17C; 
+    border: none;
+    color: rgb(85, 76, 80);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+.navieButton{
+    padding: 2px; 
+    width: 50px;
 }
