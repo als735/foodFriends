@@ -1,12 +1,13 @@
 
 import React, { Component } from 'react'
 // import axios from 'axios'; 
-// import { connect } from 'react-redux';
-// import {Link} from "react-router-dom";
+import { connect } from 'react-redux';
 import '../header/Header'; 
 import './Nav.css'; 
 import Header from '../header/Header';
 import {Link} from "react-router-dom";
+import * as actions from '../../Ducks/action_creator';
+
  
 
 class Nav extends Component {
@@ -25,8 +26,30 @@ class Nav extends Component {
     //     }); 
     //   }
 
-    render() {
+//     componentDidMount(){
+//         this.authMe();
+//     }
+   
+//    authMe = () => {
+//        debugger 
+//        const loginObj = {
+//            first_name: this.state.first_name, 
+//            prof_pic: this.state.prof_pic
+//        }; 
+//         axios.get('/api/auth/me', loginObj).then((data) => {
+//             if(data.success) {
+//                 this.props.setUser(data.user); 
+//             }
+//             else {
+//                 alert('Error loading user')
+//             }
+//         })
+//    }
 
+    render() {
+        const prof_pic = {
+            yourFace : `url(${this.props.user.prof_pic})`
+        }
         return (
             <div className='navPage'>
                 <Header/>
@@ -55,14 +78,18 @@ class Nav extends Component {
                         <Link to='/planning' className='links'>
                             Meal Plan
                         </Link>
-                    </div>  
+                    </div> 
+
+                    <div className='prof_pic' style={{backgroundImage: prof_pic.yourFace}}/>
+                    {/* <div className='listingUser' onClick={this.authMe}>{this.props.user.first_name}</div> */}
+
                </div>
             </div>
         )
     }
 }
 
-export default Nav;
+export default connect(state => state, actions)(Nav);
 
 
 

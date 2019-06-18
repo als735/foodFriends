@@ -1,9 +1,10 @@
  
 import React, { Component } from 'react'
 // import axios from 'axios'; 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import './Header.css'; 
 import {Link} from "react-router-dom";
+import * as actions from '../../Ducks/action_creator';
 
 
 class Header extends Component {
@@ -21,15 +22,27 @@ class Header extends Component {
     //       [name] :value
     //     });  
     //   }
+
+    // logout = () => {
+    //     debugger 
+    //     axios.post('api/auth/logout')
+    //     .then(results => {
+    //         if(results.success){
+    //             this.props.setUser(results)
+    //         }
+    //     })
+    // }
+
+
  
     render() {
-
+        
         return (
             <div className='headerPage'>
                 <div>
                     <div className='navImages'>
                             <Link to="/" className='logout'>
-                            <img className='logout' src={navieOut} alt=""/>
+                            <img className='logout' src={navieOut} alt="" onClick={this.logout}/>
                             </Link>
                     </div>
                 <h1 id="header1"> Friends <i>with</i> Food</h1>
@@ -40,7 +53,7 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default connect(state => state, actions)(Header);
 
 
 

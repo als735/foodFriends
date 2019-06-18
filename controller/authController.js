@@ -42,7 +42,7 @@ module.exports = {
     register: (req, res, next) => {
         const db = req.app.get('db');
 
-        const {email, password, first_name, last_name, calories, net_carbs, fat, protein} = req.body; 
+        const {email, password, first_name, last_name, prof_pic, calories, net_carbs, fat, protein} = req.body; 
 
         db.users.findOne({email})
             .then((user)=>{
@@ -53,12 +53,16 @@ module.exports = {
                 }
             })
             .then((hash)=> {
-                return db.users.insert({email, user_password:hash,first_name,last_name,calories,net_carbs,fat,protein})
+                let prof_pic = `https://robohash.org/${email}?set=set4`;  
+                return db.users.insert({email, user_password:hash,first_name,last_name, prof_pic})
             })
             .then((user)=>{
                 delete user.user_password; 
                 req.session.user = user; 
-                res.send({success: true, user:user})
+                return db.macros.insert({user_id: user.user_id, calories, net_carbs, fat, protein})
+            })
+            .then((macros) => {
+                res.send({success: true, user:req.session.user, macros})
             })
             .catch((err) => {
                 res.send({success:false, err})
@@ -66,13 +70,16 @@ module.exports = {
 
     },
     authMe: (req, res, next) => {
-
-
+        const {session} = req; 
+        if (session.user){
+                res.status(200).send(req.session.user)
+        } else {
+            res.send(false)
+        }
     },
 
     logout: (req, res, next) => {
-
-
+        // req.session.destroy();
     }
 }
 
