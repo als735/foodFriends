@@ -2,11 +2,11 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10
 // const session = require("express-session");
 
-
+ 
 module.exports = {
     login: (req, res, next) => {
         const {session} = req; 
-        let {email, user_password} = req.body; 
+        let {email, password} = req.body; 
         let db = req.app.get('db')
         let currentUser;
         // check for user by email
@@ -16,7 +16,7 @@ module.exports = {
                 if(user){
                     currentUser = user; 
                 //checks for correct password 
-                return bcrypt.compare(user_password, user.user_password)
+                return bcrypt.compare(password, user.user_password)
             } else {
                 throw("User does not exist!")
             }
@@ -42,14 +42,14 @@ module.exports = {
     register: (req, res, next) => {
         const db = req.app.get('db');
 
-        const {email, user_password, first_name, last_name, calories, net_carbs, fat, protein} = req.body; 
+        const {email, password, first_name, last_name, calories, net_carbs, fat, protein} = req.body; 
 
         db.users.findOne({email})
             .then((user)=>{
                 if(user){
                     throw("This user already exists. Please login.")
                 }else {
-                    return bcrypt.hash(user_password, saltRounds);
+                    return bcrypt.hash(password, saltRounds);
                 }
             })
             .then((hash)=> {

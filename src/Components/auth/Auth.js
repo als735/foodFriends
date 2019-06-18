@@ -48,6 +48,13 @@ class Auth extends Component {
         return (
             <div className='authPage'>
                  {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                        <div className='authieTitleBox'>
+                            <div className='authieTitle'>
+                                <h1>Friends</h1>
+                                <h1><i>with</i></h1>
+                                <h1>Food</h1>
+                            </div>
+                        </div> 
                  <div className='authieBox'>
                     <div>
                         <div>
@@ -61,6 +68,7 @@ class Auth extends Component {
                                 />
                             </label>
                         </div>
+                        <br/>
                         <div>
                             <label htmlFor="">
                                 Password: 
@@ -71,13 +79,16 @@ class Auth extends Component {
                                     onChange={this.handleInputChange}
                                 />
                             </label>
+                            <button className='loginButt' onClick={this.login}>Login</button>
                         </div>
-                        <button onClick={this.login}>Login</button>
-                        <Link to="/register" className='links'>
-                            <button>Register Here</button>
-                        </Link>
+                        <br/>
+                            <br/>
+                            <div>
+                                <Link to="/register" >
+                                    Register Here
+                                </Link>
+                            </div>
                     </div>
-
                  </div>
             </div>
         )
