@@ -7,7 +7,7 @@ import * as actions from '../../Ducks/action_creator';
 import {Link} from "react-router-dom";
 import axios from 'axios';
  
-
+ 
 class Auth extends Component {
 
         state = {
@@ -47,49 +47,52 @@ class Auth extends Component {
 
         return (
             <div className='authPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-                        <div className='authieTitleBox'>
-                            <div className='authieTitle'>
-                                <h1>Friends</h1>
-                                <h1><i>with</i></h1>
-                                <h1>Food</h1>
+                <div className='mainAuth'>
+                    {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                            <div className='authieTitleBox'>
+                                <div className='authieTitle'>
+                                    <h1>Friends</h1>
+                                    <h1><i>with</i></h1>
+                                    <h1>Food</h1>
+                                </div>
+                            </div> 
+                    <div className='authieBox'>
+                        <div>
+                            <div>
+                                <label htmlFor="">
+                                    Email: 
+                                    <input 
+                                        type="text"
+                                        name="email"
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange}
+                                    />
+                                </label>
                             </div>
-                        </div> 
-                 <div className='authieBox'>
-                    <div>
-                        <div>
-                            <label htmlFor="">
-                                Email: 
-                                <input 
-                                    type="text"
-                                    name="email"
-                                    value={this.state.email}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <br/>
-                        <div>
-                            <label htmlFor="">
-                                Password: 
-                                <input 
-                                    type="text"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                            <button className='loginButt' onClick={this.login}>Login</button>
-                        </div>
-                        <br/>
                             <br/>
                             <div>
-                                <Link to="/register" >
-                                    Register Here
-                                </Link>
+                                <label htmlFor="">
+                                    Password: 
+                                    <input 
+                                        type="text"
+                                        name="password"
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                    />
+                                </label>
+                                <button className='loginButt' onClick={this.login}>Login</button>
                             </div>
+                            <br/>
+                                <br/>
+                                <div>
+                                    <Link to="/register" >
+                                        Register Here
+                                    </Link>
+                                </div>
+                        </div>
                     </div>
                  </div>
+                 <div className='coolBox'></div>
             </div>
         )
     }
