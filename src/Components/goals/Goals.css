@@ -28,7 +28,7 @@
 
 .firstMacro {
     font-size: 30px; 
-    margin-left: 240px; 
+    margin-left: 290px; 
     border: solid 2px black; 
 }
 
@@ -36,4 +36,24 @@
     font-size: 30px; 
     margin-left: 140px; 
     border: solid 2px black; 
+}
+
+.firstEditMacro{
+    margin-left: 160px; 
+}
+
+.editMacros {
+    font-size: 20px; 
+    margin-left: 140px; 
+    border: solid 1 px black; 
+}
+
+.remaininngEditMacros {
+    margin: 30px; 
+}
+
+.lifeGoalsBox {
+    margin-top: 100px; 
+    margin-left: 260px; 
+
 }

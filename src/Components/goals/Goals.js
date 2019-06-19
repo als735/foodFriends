@@ -24,6 +24,8 @@ class Goals extends Component {
     //   }
 
     render() {
+console.log(this.props, 'props')
+        // let cals = this.props.user.calories; 
 
         return (
             <div className='goalsPage'>
@@ -44,10 +46,32 @@ class Goals extends Component {
                     <h2 className="macroLabelsFat">Fat</h2>
                 </div>
                 <div className='usersMacrosCurrentStats'>
-                    <h3 className='firstMacro'>1200</h3>
+                    <h3 className='firstMacro'>2000</h3>
                     <h3 className ='allOtherMacros'>30</h3>
                     <h3 className ='allOtherMacros'>80</h3>
                     <h3 className ='allOtherMacros'>90</h3>
+                </div>
+                <div className='editMacros'>
+                    <label htmlFor="" className='firstEditMacro'>
+                    <input type="text"/>
+                    </label>
+                    <label htmlFor="" className='remaininngEditMacros'>
+                    <input type="text"/>
+                    </label>
+                    <label htmlFor="" className='remaininngEditMacros'>
+                    <input type="text"/>
+                    </label>
+                    <label htmlFor="" className='remaininngEditMacros'>
+                    <input type="text"/>
+                    </label>
+                    <button>Edit</button>
+                </div>
+                <div className='lifeGoalsBox'>
+                    <label htmlFor="">
+                    <input type="text"/>
+                    </label>
+                    <button>Add</button>
+                    <button>Delete</button>
                 </div>
             </div>
         </div>
