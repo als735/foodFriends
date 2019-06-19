@@ -51,9 +51,7 @@ class Auth extends Component {
                     {this.props.location.pathname !== '/' ? <Nav/> : ' '}
                             <div className='authieTitleBox'>
                                 <div className='authieTitle'>
-                                    <h1>Friends</h1>
-                                    <h1><i>with</i></h1>
-                                    <h1>Food</h1>
+                                    <h1 className='friendsFood'>Friends <i>with</i> Food </h1>
                                 </div>
                             </div> 
                     <div className='authieBox'>
@@ -92,7 +90,9 @@ class Auth extends Component {
                         </div>
                     </div>
                  </div>
-                 <div className='coolBox'></div>
+                 <div className='coolBox2'></div>
+                 <div>
+                 </div>
             </div>
         )
     }
