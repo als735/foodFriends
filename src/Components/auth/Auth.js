@@ -16,8 +16,7 @@ class Auth extends Component {
         
     }; 
     
-    login = () => {
-        debugger; 
+    login = () => { 
         const loginObj = {
             email: this.state.email,
             password: this.state.password 
@@ -50,8 +49,8 @@ class Auth extends Component {
                 <div className='mainAuth'>
                     {this.props.location.pathname !== '/' ? <Nav/> : ' '}
                             <div className='authieTitleBox'>
-                                <div className='authieTitle'>
-                                    <h1 className='friendsFood'>Friends <i>with</i> Food </h1>
+                                <div className='authieTitle'> 
+                                    <h1 className='friendsFood'> <i>F</i>riends <i>with</i> <i>F</i>ood </h1>
                                 </div>
                             </div> 
                     <div className='authieBox'>

@@ -25,10 +25,20 @@ class MealCard extends Component {
 
         return (
             <div className='mealCardPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
-
-
-                Mealie Cardie  
+                 <div>
+                <div>
+                    <h2 className='titlePage'>Meal</h2> 
+                </div>
+                <div className='homePage'>
+                    {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2 className="introH">What is Food <i>with</i> Friends?</h2>
+                    <p className="introP"> Food <i>with</i> Friends is an application that encourages you to become friends with food. So often in our lives we are unhappy due to the food we are eating, and our relationship to....</p>
+                </div>
+            </div>
 
             </div>
         )

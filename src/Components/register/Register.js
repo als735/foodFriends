@@ -19,7 +19,6 @@ class Register extends Component {
     }
 
     register = () => {
-        debugger; 
         const registerObj = {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
@@ -30,8 +29,7 @@ class Register extends Component {
             fat: this.state.fat,
             protein: this.state.protein
         }; 
-        axios.post('/api/auth/register', registerObj).then(({ data }) => {
-            debugger; 
+        axios.post('/api/auth/register', registerObj).then(({ data }) => { 
             if (data.success) {
                 this.props.setUser(data.user); 
                 this.props.history.push('/home'); 

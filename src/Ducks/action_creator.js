@@ -1,7 +1,7 @@
 
 export const setUser = (user) => {
     return {
-        type:"set_user",
+        type:"setUser",
         payload:user,
     }
 }

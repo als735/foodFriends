@@ -1,0 +1,39 @@
+.macroLabels {
+    display: flex; 
+    flex-direction: row;
+    margin-top: 10px; 
+}
+
+.macroLabelsCals {
+  font-size: 40px;
+  margin-left: 200px; 
+}
+
+.macroLabelsCarbs {
+    font-size: 40px;
+}
+
+.macroLabelsProtein {
+    font-size: 40px; 
+}
+
+.macroLabelsFat {
+    font-size: 40px; 
+}
+
+.usersMacrosCurrentStats {
+    display: flex; 
+    flex-direction: row;
+}
+
+.firstMacro {
+    font-size: 30px; 
+    margin-left: 240px; 
+    border: solid 2px black; 
+}
+
+.allOtherMacros {
+    font-size: 30px; 
+    margin-left: 140px; 
+    border: solid 2px black; 
+}

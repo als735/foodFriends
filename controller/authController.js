@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const saltRounds = 10
-// const session = require("express-session");
+const session = require("express-session");
 
  
 module.exports = {
