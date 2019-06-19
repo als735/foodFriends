@@ -29,10 +29,10 @@ class Nav extends Component {
     }
    
    authMe = () => {
-       debugger  
+       debugger;  
         axios.get('/api/auth/me').then(res => {
-            console.log(res.data, 'data'); 
-                this.props.setUser(res.data.user); 
+            debugger; 
+            this.props.setUser(res.data.user); 
         })
         .catch(err => console.log(err))
    }
