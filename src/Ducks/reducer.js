@@ -9,4 +9,13 @@ const user = (state= {}, action) => {
     } 
 }
 
-export default combineReducers({user});
+const macros = (state= {}, action) => {
+    switch(action.type){
+        case 'setMacros':
+            return action.payload;
+        default:
+            return state;
+    } 
+}
+
+export default combineReducers({user, macros});

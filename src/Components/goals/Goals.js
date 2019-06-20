@@ -60,22 +60,30 @@ console.log(this.props, 'props')
                     <h3 className ='fatCurrentStats'>90</h3>
                 </div>
                 <div className='editMacros'>
-                    <label htmlFor="" className='calsEditMacros'> Calories
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='proteinEditMacros'> Protein
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='fatEditMacros'> Fat
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <button className='editCalsMacrosButton'>Edit</button>
-                    <button className='editCarbsMacrosButton'>Edit</button>
-                    <button className='editProteinMacrosButton'>Edit</button>
-                    <button className='editFatMacrosButton'>Edit</button>
+                    <div>
+                        <label htmlFor="" className='calsEditMacros'> Calories
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
+                    <div>
+                        <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
+                    <div>
+                        <label htmlFor="" className='proteinEditMacros'> Protein
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
+                    <div>
+                        <label htmlFor="" className='fatEditMacros'> Fat
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
                 </div>
                 <div>
                 <h1 className='weightTitle'>Weight</h1>
@@ -84,29 +92,23 @@ console.log(this.props, 'props')
                     <h2 className="currentWeightLabels">Current Weight</h2>
                     <h2 className="goalWeightLabels">Goal Weight</h2>
                 </div>
-                <div className='usersMacrosCurrentStats'>
-                    <h3 className='caloriesCurrentStats'>2000</h3>
-                    <h3 className ='netCarbsCurrentStats'>30</h3>
-                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>80</h3>
-                    <h3 className ='fatCurrentStats'>90</h3>
+                <div className='usersWeightCurrentStats'>
+                    <h3 className='weightCurrent'>150</h3>
+                    <h3 className ='goalWeight'>90</h3>
                 </div>
-                <div className='editMacros'>
-                    <label htmlFor="" className='calsEditMacros'> Calories
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='proteinEditMacros'> Protein
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <label htmlFor="" className='fatEditMacros'> Fat
-                    <input type="text" onChange={this.state.handleInputChange}/>
-                    </label>
-                    <button className='editCalsMacrosButton'>Edit</button>
-                    <button className='editCarbsMacrosButton'>Edit</button>
-                    <button className='editProteinMacrosButton'>Edit</button>
-                    <button className='editFatMacrosButton'>Edit</button>
+                <div className='editWeight'>
+                    <div>
+                        <label htmlFor="" className='currentWeightEdit'> Current Weight
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
+                    <div>
+                        <label htmlFor="" className='goalWeightEdit'> Goal Weight
+                        <input type="text" onChange={this.state.handleInputChange}/>
+                        </label>
+                        <button className='editButtons'>Edit</button>
+                    </div>
                 </div>
                 <div className='lifeGoalsBox'>
                     <textarea name="lifeGoals" id="" onChange={this.state.handleInputChange} className='lifeGoalsBox'></textarea>

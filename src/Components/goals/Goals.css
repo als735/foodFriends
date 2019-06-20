@@ -42,7 +42,7 @@
   margin-left: 80px; 
   background-color: #C8D5B9; 
 }
-
+ 
 .usersMacrosCurrentStats {
     display: flex; 
     flex-direction: row;
@@ -88,22 +88,23 @@
     margin-top: 40px; 
     margin-bottom: 40px; 
     border: solid 1px black; 
-    padding: 40px; 
+    padding: 20px; 
     font-size: 14pt; 
     background-color: rgb(206, 220, 191); 
     font-weight: bold; 
     width: 100%; 
+    display: flex; 
+    flex-direction: row;
 }
 
 .calsEditMacros{
-    margin-left: 240px; 
+    margin-left: 150px; 
 }
 
 .netCarbsEditMacros {
     font-size: 20px; 
     margin-left: 60px; 
     margin-top: 30px; 
-    padding: 10px; 
     /* border: solid 1px black;  */
 }
 
@@ -115,24 +116,8 @@
     margin-left: 40px; 
 }
 
-.editCalsMacrosButton{
-    margin-left: 410px;
+.editButtons{
     height: 30px;  
-}
-
-.editCarbsMacrosButton {
-    height: 30px;  
-    margin-left: 260px; 
-}
-
-.editProteinMacrosButton{
-    height: 30px;  
-    margin-left: 215px; 
-}
-
-.editFatMacrosButton{
-    height: 30px;  
-    margin-left: 170px; 
 }
 
 .weightTitle {
@@ -161,8 +146,56 @@
   font-size: 40px; 
   padding: 10px; 
   border: solid 3px black;
-  margin-left: 280px; 
+  margin-left: 210px; 
   background-color: #C8D5B9; 
+}
+
+.editWeight {
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    border: solid 1px black; 
+    padding: 20px; 
+    font-size: 14pt; 
+    background-color: rgb(206, 220, 191); 
+    font-weight: bold; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: row;
+}
+
+.usersWeightCurrentStats {
+    display: flex; 
+    flex-direction: row;
+    margin-top: 10px; 
+    margin-left: 220px; 
+    background-color: rgb(165, 207, 216); 
+    border: solid 3px black; 
+    width: 1000px; 
+    color: #723D46;
+}
+
+.weightCurrent{
+    font-size: 30px; 
+    margin-left: 190px; 
+    border: solid 1px black; 
+    background-color: white; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+.goalWeight {
+    font-size: 30px; 
+    margin-left: 475px; 
+    border: solid 1px black; 
+    background-color: white; 
+}
+
+.currentWeightEdit {
+    margin-left: 300px; 
+}
+
+.goalWeightEdit {
+    margin-left: 200px; 
 }
 
 .lifeGoalsBox { 

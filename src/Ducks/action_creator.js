@@ -5,3 +5,10 @@ export const setUser = (user) => {
         payload:user,
     }
 } 
+
+export const setMacros = (macros) => {
+    return {
+        type:"setMacros",
+        payload:macros,
+    }
+} 

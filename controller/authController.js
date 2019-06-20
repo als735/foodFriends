@@ -70,9 +70,23 @@ module.exports = {
 
     },
     authMe: (req, res, next) => {
+        const db = req.app.get('db');
         const {session} = req; 
-        if (session.user){
-                res.status(200).send(req.session.user)
+        const loadInApp= {user: session.user, macros: {}, weight: {}, life: {}};  
+        if (session.user){ 
+                db.macros.findOne({user_id:session.user.user_id})
+                .then((macros) => {
+                    loadInApp.macros = macros; 
+                    return db.weight_goals.findOne({user_id: session.user.user_id})
+                })
+                .then((weight) => {
+                    loadInApp.weight = weight; 
+                    return db.life.findOne({user_id: session.user.user_id})
+                })
+                .then((life) => {
+                    loadInApp.life = life; 
+                    res.send(loadInApp)
+                })
         } else {
             res.send(false)
         }
