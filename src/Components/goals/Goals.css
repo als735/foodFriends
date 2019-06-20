@@ -1,59 +1,199 @@
+.macrosTitle {
+    margin-left: 200px; 
+    font-size: 60px; 
+}
+
 .macroLabels {
     display: flex; 
     flex-direction: row;
-    margin-top: 10px; 
+    border: solid 6px black; 
+    width: 100%; 
+    color: black;
+    text-shadow: 2px 2px white;
 }
 
 .macroLabelsCals {
   font-size: 40px;
-  margin-left: 200px; 
+  margin-left: 280px; 
+  padding: 5px; 
+  border: solid 3px black;
+  background-color: #C8D5B9; 
 }
 
 .macroLabelsCarbs {
     font-size: 40px;
+    padding: 5px; 
+  border: solid 3px black;
+  background-color: #C8D5B9; 
 }
 
 .macroLabelsProtein {
     font-size: 40px; 
+    padding: 5px; 
+  border: solid 3px black;
+  margin-left: 70px; 
+  background-color: #C8D5B9; 
 }
 
 .macroLabelsFat {
     font-size: 40px; 
+    padding: 5px; 
+  border: solid 3px black;
+  margin-left: 80px; 
+  background-color: #C8D5B9; 
 }
 
 .usersMacrosCurrentStats {
     display: flex; 
     flex-direction: row;
+    margin-top: 10px; 
+    margin-left: 220px; 
+    background-color: rgb(165, 207, 216); 
+    border: solid 3px black; 
+    width: 1000px; 
+    color: #723D46;
 }
 
-.firstMacro {
+.caloriesCurrentStats {
     font-size: 30px; 
-    margin-left: 290px; 
-    border: solid 2px black; 
+    margin-left: 120px; 
+    border: solid 1px black; 
+    background-color: white; 
+    padding-left: 10px; 
+    padding-right: 10px; 
 }
 
-.allOtherMacros {
+.netCarbsCurrentStats {
     font-size: 30px; 
-    margin-left: 140px; 
-    border: solid 2px black; 
+    margin-left: 175px; 
+    border: solid 1px black; 
+    background-color: white; 
 }
 
-.firstEditMacro{
-    margin-left: 160px; 
+.proteinCurrentStats {
+    font-size: 30px; 
+    margin-left: 225px; 
+    border: solid 1px black; 
+    background-color: white; 
+}
+
+.fatCurrentStats {
+    font-size: 30px; 
+    margin-left: 175px; 
+    border: solid 1px black; 
+    background-color: white; 
 }
 
 .editMacros {
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    border: solid 1px black; 
+    padding: 40px; 
+    font-size: 14pt; 
+    background-color: rgb(206, 220, 191); 
+    font-weight: bold; 
+    width: 100%; 
+}
+
+.calsEditMacros{
+    margin-left: 240px; 
+}
+
+.netCarbsEditMacros {
     font-size: 20px; 
-    margin-left: 140px; 
-    border: solid 1 px black; 
+    margin-left: 60px; 
+    margin-top: 30px; 
+    padding: 10px; 
+    /* border: solid 1px black;  */
 }
 
-.remaininngEditMacros {
-    margin: 30px; 
+.proteinEditMacros {
+    margin-left: 40px; 
 }
 
-.lifeGoalsBox {
-    margin-top: 100px; 
+.fatEditMacros {
+    margin-left: 40px; 
+}
+
+.editCalsMacrosButton{
+    margin-left: 410px;
+    height: 30px;  
+}
+
+.editCarbsMacrosButton {
+    height: 30px;  
     margin-left: 260px; 
+}
 
+.editProteinMacrosButton{
+    height: 30px;  
+    margin-left: 215px; 
+}
+
+.editFatMacrosButton{
+    height: 30px;  
+    margin-left: 170px; 
+}
+
+.weightTitle {
+    margin-left: 200px; 
+    font-size: 60px; 
+}
+
+.weightLabels {
+    display: flex; 
+    flex-direction: row;
+    border: solid 6px black; 
+    width: 100%; 
+    color: black;
+    text-shadow: 2px 2px white; 
+}
+
+.currentWeightLabels {
+  font-size: 40px;
+  margin-left: 300px; 
+  padding: 10px; 
+  border: solid 3px black;
+  background-color: #C8D5B9;
+}
+
+.goalWeightLabels {
+  font-size: 40px; 
+  padding: 10px; 
+  border: solid 3px black;
+  margin-left: 280px; 
+  background-color: #C8D5B9; 
+}
+
+.lifeGoalsBox { 
+    margin-top: 20px; 
+    margin-left: 150px; 
+    width: 900px; 
+    height: 200px; 
+}
+
+.lifeGoals {
+    width: 100%; 
+    height: 200px; 
+}
+
+.addGoalsButton {
+    margin-top: 5px; 
+    margin-left: 200px; 
+    height: 30px;
+    width: 60px;
+    margin-bottom: 4px;  
+}
+
+.deleteGoalsButton {
+    margin-top: 5px; 
+    margin-left: 10px; 
+    height: 30px; 
+    width: 60px; 
+}
+
+.goalButtonBox {
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 200px; 
 }

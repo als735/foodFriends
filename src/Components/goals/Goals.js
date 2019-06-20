@@ -8,20 +8,25 @@ import * as actions from '../../Ducks/action_creator';
 
 
 class Goals extends Component {
-    // constructor(props){
-    //     super(props); 
+    state = {
+        caloriess : '',
+        net_carbs : '',
+        protein : '', 
+        fat : '',
+        current_weight : '',
+        goal_weight: '',
+        life_goal: ''
+    }; 
 
-    // }
-
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
+    handleInputChange= (e) => {
+        const target = e.target; 
+        const value = target.value; 
+        const name = target.name; 
       
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
+        this.setState({
+          [name] :value
+        }); 
+      }
 
     render() {
 console.log(this.props, 'props')
@@ -39,6 +44,9 @@ console.log(this.props, 'props')
                 </div>
             </div>
             <div>
+                <h1 className='macrosTitle'>Macros</h1>
+            </div>
+            <div>
                 <div className='macroLabels'>
                     <h2 className="macroLabelsCals">Calories</h2>
                     <h2 className="macroLabelsCarbs">Net Carbs</h2>
@@ -46,32 +54,66 @@ console.log(this.props, 'props')
                     <h2 className="macroLabelsFat">Fat</h2>
                 </div>
                 <div className='usersMacrosCurrentStats'>
-                    <h3 className='firstMacro'>2000</h3>
-                    <h3 className ='allOtherMacros'>30</h3>
-                    <h3 className ='allOtherMacros'>80</h3>
-                    <h3 className ='allOtherMacros'>90</h3>
+                    <h3 className='caloriesCurrentStats'>2000</h3>
+                    <h3 className ='netCarbsCurrentStats'>30</h3>
+                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>80</h3>
+                    <h3 className ='fatCurrentStats'>90</h3>
                 </div>
                 <div className='editMacros'>
-                    <label htmlFor="" className='firstEditMacro'>
-                    <input type="text"/>
+                    <label htmlFor="" className='calsEditMacros'> Calories
+                    <input type="text" onChange={this.state.handleInputChange}/>
                     </label>
-                    <label htmlFor="" className='remaininngEditMacros'>
-                    <input type="text"/>
+                    <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
+                    <input type="text" onChange={this.state.handleInputChange}/>
                     </label>
-                    <label htmlFor="" className='remaininngEditMacros'>
-                    <input type="text"/>
+                    <label htmlFor="" className='proteinEditMacros'> Protein
+                    <input type="text" onChange={this.state.handleInputChange}/>
                     </label>
-                    <label htmlFor="" className='remaininngEditMacros'>
-                    <input type="text"/>
+                    <label htmlFor="" className='fatEditMacros'> Fat
+                    <input type="text" onChange={this.state.handleInputChange}/>
                     </label>
-                    <button>Edit</button>
+                    <button className='editCalsMacrosButton'>Edit</button>
+                    <button className='editCarbsMacrosButton'>Edit</button>
+                    <button className='editProteinMacrosButton'>Edit</button>
+                    <button className='editFatMacrosButton'>Edit</button>
+                </div>
+                <div>
+                <h1 className='weightTitle'>Weight</h1>
+                </div>
+                <div className='weightLabels'>
+                    <h2 className="currentWeightLabels">Current Weight</h2>
+                    <h2 className="goalWeightLabels">Goal Weight</h2>
+                </div>
+                <div className='usersMacrosCurrentStats'>
+                    <h3 className='caloriesCurrentStats'>2000</h3>
+                    <h3 className ='netCarbsCurrentStats'>30</h3>
+                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>80</h3>
+                    <h3 className ='fatCurrentStats'>90</h3>
+                </div>
+                <div className='editMacros'>
+                    <label htmlFor="" className='calsEditMacros'> Calories
+                    <input type="text" onChange={this.state.handleInputChange}/>
+                    </label>
+                    <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
+                    <input type="text" onChange={this.state.handleInputChange}/>
+                    </label>
+                    <label htmlFor="" className='proteinEditMacros'> Protein
+                    <input type="text" onChange={this.state.handleInputChange}/>
+                    </label>
+                    <label htmlFor="" className='fatEditMacros'> Fat
+                    <input type="text" onChange={this.state.handleInputChange}/>
+                    </label>
+                    <button className='editCalsMacrosButton'>Edit</button>
+                    <button className='editCarbsMacrosButton'>Edit</button>
+                    <button className='editProteinMacrosButton'>Edit</button>
+                    <button className='editFatMacrosButton'>Edit</button>
                 </div>
                 <div className='lifeGoalsBox'>
-                    <label htmlFor="">
-                    <input type="text"/>
-                    </label>
-                    <button>Add</button>
-                    <button>Delete</button>
+                    <textarea name="lifeGoals" id="" onChange={this.state.handleInputChange} className='lifeGoalsBox'></textarea>
+                        <div className='goalButtonBox'>
+                            <button className='addGoalsButton'>Add</button>
+                            <button className='deleteGoalsButton'>Delete</button>
+                        </div>
                 </div>
             </div>
         </div>

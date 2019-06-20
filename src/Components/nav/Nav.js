@@ -27,12 +27,16 @@ class Nav extends Component {
     componentDidMount(){
         this.authMe();
     }
-   
-   authMe = () => {
-       debugger;  
+
+    authMe = () => {
+        debugger; 
         axios.get('/api/auth/me').then(res => {
-            debugger;
-            this.props.setUser(res.data.user); 
+            if(res.user.data){
+                console.log(res.data, 'data');
+                this.props(res.data);
+            }else{
+                this.props.history.push('/')
+            }
         })
         .catch(err => console.log(err))
    }
@@ -72,8 +76,7 @@ class Nav extends Component {
                     </div> 
 
                     <div className='prof_pic' style={{backgroundImage: prof_pic.yourFace}}/>
-                    <div className='listingUser' onClick={this.authMe}>{this.props.user.first_name}</div>
-
+                    <div className='listingUser' onClick={this.authMe}>{this.props.user.first_name} {this.props.user.last_name}</div>
                </div>
             </div>
         )

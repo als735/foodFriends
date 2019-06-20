@@ -43,3 +43,10 @@
     padding: 2px; 
     width: 50px;
 }
+
+.listingUser {
+    margin-top: 20px; 
+    margin-left: 25px; 
+    font-weight: 800; 
+    color: white; 
+}
