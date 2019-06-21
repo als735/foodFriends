@@ -18,4 +18,22 @@ const macros = (state= {}, action) => {
     } 
 }
 
-export default combineReducers({user, macros});
+const weight = (state= {}, action) => {
+    switch(action.type){
+        case 'setWeight':
+            return action.payload;
+        default:
+            return state;
+    } 
+}
+
+const life = (state= {}, action) => {
+    switch(action.type){
+        case 'setLife':
+            return action.payload;
+        default:
+            return state;
+    } 
+}
+
+export default combineReducers({user, macros, weight, life});

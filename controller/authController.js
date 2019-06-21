@@ -41,15 +41,22 @@ module.exports = {
 
     register: (req, res, next) => {
         const db = req.app.get('db');
-
-        const {email, password, first_name, last_name, prof_pic, calories, net_carbs, fat, protein} = req.body; 
-
+        const {session} = req; 
+        
+        const {email, user_password, first_name, last_name, prof_pic, calories, net_carbs, fat, protein, current_weight, goal_weight, life_goal} = req.body; 
+        
+        const loadOnRegister = {
+            user: session.user, 
+            macros: {}, 
+            weight: {}, 
+            life : {}
+        } 
         db.users.findOne({email})
             .then((user)=>{
                 if(user){
                     throw("This user already exists. Please login.")
                 }else {
-                    return bcrypt.hash(password, saltRounds);
+                    return bcrypt.hash(user_password, saltRounds);
                 }
             })
             .then((hash)=> {
@@ -59,15 +66,23 @@ module.exports = {
             .then((user)=>{
                 delete user.user_password; 
                 req.session.user = user; 
-                return db.macros.insert({user_id: user.user_id, calories, net_carbs, fat, protein})
+                return db.macros.insert({user_id: session.user.user_id, calories, net_carbs, fat, protein})
             })
             .then((macros) => {
-                res.send({success: true, user:req.session.user, macros})
+                loadOnRegister.macros = macros; 
+                return db.weight_goals.insert({user_id : session.user.user_id, current_weight, goal_weight})
+            })
+            .then((weight) => {
+                loadOnRegister.weight = weight; 
+                return db.life_goals.insert({user_id : session.user.user_id, life_goal})
+            })
+            .then((life) => {
+                loadOnRegister.life = life; 
+                res.send(loadOnRegister); 
             })
             .catch((err) => {
                 res.send({success:false, err})
             })
-
     },
     authMe: (req, res, next) => {
         const db = req.app.get('db');
@@ -93,8 +108,6 @@ module.exports = {
     },
 
     logout: (req, res, next) => {
-        // req.session.destroy();
+        req.session.destroy();
     }
 }
-
-

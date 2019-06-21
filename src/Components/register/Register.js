@@ -16,7 +16,8 @@ class Register extends Component {
             net_carbs : '',
             fat : '',
             protein : '', 
-    }
+            current_weight: '',
+            goal_weight: ''    }
 
     register = () => {
         const registerObj = {
@@ -27,15 +28,18 @@ class Register extends Component {
             calories: this.state.calories,
             net_carbs: this.state.net_carbs,
             fat: this.state.fat,
-            protein: this.state.protein
-        }; 
+            protein: this.state.protein,
+            current_weight: this.state.current_weight,
+            goal_weight: this.state.goal_weight  }; 
+            
         axios.post('/api/auth/register', registerObj).then(({ data }) => { 
             if (data.success) {
                 this.props.setUser(data.user); 
-                this.props.history.push('/home'); 
+                this.props.history.push('/home');
             } else {
                 alert('Invalid Registration')
             }
+            console.log(data.user, 'user data')
         }); 
     }; 
  
@@ -54,7 +58,7 @@ class Register extends Component {
         return (
             <div className='registerPage'>
                 <div>
-                    <h2>Users Info:</h2>
+                    <h2>User's Info:</h2>
                     <div className='usersInfo'>
                         <div>
                             <label htmlFor="">
@@ -102,7 +106,7 @@ class Register extends Component {
                         </div>
                     </div>
                     <br/>
-                    <h2>Users Macros:</h2>
+                    <h2>User's Macro Goals:</h2>
                     <div className='usersMacros'>
                         <div>
                             <label htmlFor="">
@@ -144,6 +148,31 @@ class Register extends Component {
                                     type="text"
                                     name="protein"
                                     value={this.state.protein}
+                                    onChange={this.handleInputChange}
+                                /> 
+                            </label>
+                        </div>
+                    </div>
+                    <h2>User's Weight Goals:</h2>
+                    <div className='usersMacros'>
+                        <div>
+                            <label htmlFor="">
+                                Current Weight:  
+                                <input 
+                                    type="text"
+                                    name="current_weight"
+                                    value={this.state.current_weight}
+                                    onChange={this.handleInputChange}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label htmlFor="">
+                                Goal Weight:  
+                                <input 
+                                    type="text"
+                                    name="goal_weight"
+                                    value={this.state.goal_weight}
                                     onChange={this.handleInputChange}
                                 /> 
                             </label>
