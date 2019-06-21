@@ -34,15 +34,15 @@ class Register extends Component {
             
         axios.post('/api/auth/register', registerObj).then(({ data }) => { 
             debugger; 
-            if (data.success) {
-                this.props.setUser(data.success.user);
-                // this.props.setMacros(data.macros);
-                // this.props.setWeight(data.weight);  
+            if (data) {
+                this.props.setUser(data.user); 
+                this.props.setWeight(data.macros); 
+                this.props.setMacros(data.weight); 
                 this.props.history.push('/home');
             } else {
                 alert('Invalid Registration')
             }
-            console.log(data.user, 'user data')
+            console.log(data.user, data.macros, data.weight, 'user data')
         }); 
     }; 
  
