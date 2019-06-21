@@ -18,6 +18,21 @@ class Goals extends Component {
         life_goal: ''
     }; 
 
+//     goalGrab = () => {
+//         debugger; 
+//         axios.get('/api/auth/register').then(res => {
+//             debugger; 
+//             if(res.data){
+//                 console.log(res.data.user, 'data');
+//                 this.props.setMacros(res.data.user);
+//             }else{
+//                 this.props.history.push('/')
+//             }
+//         })
+//         .catch(err => console.log(err))
+//    }
+
+
     handleInputChange= (e) => {
         const target = e.target; 
         const value = target.value; 
@@ -48,16 +63,17 @@ console.log(this.props, 'props')
             </div>
             <div>
                 <div className='macroLabels'>
-                    <h2 className="macroLabelsCals">Calories</h2>
+                    <h2 className="macroLabelsCals">Calories
+                    </h2>
                     <h2 className="macroLabelsCarbs">Net Carbs</h2>
                     <h2 className="macroLabelsProtein">Protein</h2>
                     <h2 className="macroLabelsFat">Fat</h2>
                 </div>
                 <div className='usersMacrosCurrentStats'>
-                    <h3 className='caloriesCurrentStats'>2000</h3>
-                    <h3 className ='netCarbsCurrentStats'>30</h3>
-                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>80</h3>
-                    <h3 className ='fatCurrentStats'>90</h3>
+                    <h3 className='caloriesCurrentStats'>{this.props.user.first_name}</h3>
+                    <h3 className ='netCarbsCurrentStats'>{this.props.user.first_name}</h3>
+                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>{this.props.user.first_name}</h3>
+                    <h3 className ='fatCurrentStats'>{this.props.user.first_name}</h3>
                 </div>
                 <div className='editMacros'>
                     <div>
@@ -93,8 +109,8 @@ console.log(this.props, 'props')
                     <h2 className="goalWeightLabels">Goal Weight</h2>
                 </div>
                 <div className='usersWeightCurrentStats'>
-                    <h3 className='weightCurrent'>150</h3>
-                    <h3 className ='goalWeight'>90</h3>
+                    <h3 className='weightCurrent'>{this.props.user.first_name}</h3>
+                    <h3 className ='goalWeight'>{this.props.user.first_name}</h3>
                 </div>
                 <div className='editWeight'>
                     <div>

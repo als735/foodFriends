@@ -43,20 +43,16 @@ module.exports = {
         const db = req.app.get('db');
         const {session} = req; 
         
-        const {email, user_password, first_name, last_name, prof_pic, calories, net_carbs, fat, protein, current_weight, goal_weight, life_goal} = req.body; 
-        
-        const loadOnRegister = {
-            user: session.user, 
-            macros: {}, 
-            weight: {}, 
-            life : {}
-        } 
+        const {email, password, first_name, last_name, prof_pic, calories, net_carbs, fat, protein, current_weight, goal_weight} = req.body; 
+
+        const loadOnRegister = {user: {}, macros: {}, weight: {}};  
+
         db.users.findOne({email})
             .then((user)=>{
                 if(user){
                     throw("This user already exists. Please login.")
                 }else {
-                    return bcrypt.hash(user_password, saltRounds);
+                    return bcrypt.hash(password, saltRounds);
                 }
             })
             .then((hash)=> {
@@ -66,6 +62,7 @@ module.exports = {
             .then((user)=>{
                 delete user.user_password; 
                 req.session.user = user; 
+                loadOnRegister.user = user; 
                 return db.macros.insert({user_id: session.user.user_id, calories, net_carbs, fat, protein})
             })
             .then((macros) => {
@@ -74,10 +71,6 @@ module.exports = {
             })
             .then((weight) => {
                 loadOnRegister.weight = weight; 
-                return db.life_goals.insert({user_id : session.user.user_id, life_goal})
-            })
-            .then((life) => {
-                loadOnRegister.life = life; 
                 res.send(loadOnRegister); 
             })
             .catch((err) => {

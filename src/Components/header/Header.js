@@ -1,6 +1,6 @@
  
 import React, { Component } from 'react'
-// import axios from 'axios'; 
+import axios from 'axios'; 
 import { connect } from 'react-redux';
 import './Header.css'; 
 import {Link} from "react-router-dom";
@@ -23,15 +23,15 @@ class Header extends Component {
     //     });  
     //   }
 
-    // logout = () => {
-    //     debugger 
-    //     axios.post('api/auth/logout')
-    //     .then(results => {
-    //         if(results.success){
-    //             this.props.setUser(results)
-    //         }
-    //     })
-    // }
+    logout = () => {
+        debugger 
+        axios.post('api/auth/logout')
+        .then(results => {
+            if(results.success){
+                this.props.setUser(results)
+            }
+        })
+    }
 
 
  
