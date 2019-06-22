@@ -4,7 +4,7 @@ export const setUser = (user) => {
         type:"setUser",
         payload:user,
     }
-} 
+}  
 
 export const setMacros = (macros) => {
     return {
@@ -24,5 +24,19 @@ export const setLife = (life) => {
     return {
         type:"setLife",
         payload:life,
+    }
+} 
+
+export const setRecipe = (recipe) => {
+    return {
+        type:"setRecipe",
+        payload:recipe,
+    }
+} 
+
+export const setIngredients = (ingredients) => {
+    return {
+        type:"setIngredients",
+        payload:ingredients,
     }
 } 

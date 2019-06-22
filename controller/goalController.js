@@ -16,7 +16,7 @@ module.exports = {
             res.send({success:false, err})
         })
 //4 send back the updated macros line 
-    }, 
+    },  
 
     editWeight: (req, res, next) => {
         const db = req.app.get('db');

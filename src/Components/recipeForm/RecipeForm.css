@@ -12,3 +12,73 @@
         color: #5B4C51;
         box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2)
 }
+
+.mealTitle {
+        font-size: 30pt; 
+        margin-top: 20px; 
+        margin-left: 250px; 
+}
+
+.newMealBox {
+        margin-left: 200px; 
+        margin-bottom: 50px; 
+        margin-right: 50px; 
+        width: 1300px; 
+        border: solid 2px black; 
+}
+.newMealTitle {
+        font-size: 25pt; 
+}
+
+.nutritionBox{
+        margin-top: 30px; 
+        display: flex; 
+        flex-direction: row;
+        margin-bottom: 30px; 
+}
+
+.addIngredientsBox {
+        margin-left: 50px; 
+        margin-right: 100px; 
+        border: dotted 2px black; 
+}
+
+.addIngredients {
+        font-size: 15pt; 
+        margin-right: 100px; 
+}
+
+.usersMealMacros {
+        border: solid 2px black; 
+        width: 250px; 
+        margin-top: 30px; 
+        margin-left: 10px; 
+        margin-bottom: 30px; 
+        padding: 10px; 
+        font-size: 12pt; 
+}
+.imageURL {
+        font-size: 15pt; 
+}
+
+.instructionsImageBox {
+        margin-bottom: 10px; 
+        margin-top: 20px; 
+}
+.instructionsTitle {
+        font-size: 15pt;
+        margin-left: 50px;  
+}
+.instructionsBox {
+    width: 500px; 
+    height: 300px; 
+    margin-left: 50px;  
+}
+
+.formImage {
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.2);
+        width: 300px;
+        margin-left: 200px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+}
