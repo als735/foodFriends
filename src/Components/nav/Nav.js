@@ -33,8 +33,10 @@ class Nav extends Component {
         axios.get('/api/auth/me').then(res => {
             debugger; 
             if(res.data){
-                console.log(res.data.user, 'data');
+                console.log(res.data.user, res.data.macros,res.data.weight, 'data');
                 this.props.setUser(res.data.user);
+                this.props.setWeight(res.data.weight);
+                this.props.setMacros(res.data.macros); 
             }else{
                 this.props.history.push('/')
             }

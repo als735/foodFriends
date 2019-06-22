@@ -36,8 +36,8 @@ class Register extends Component {
             debugger; 
             if (data) {
                 this.props.setUser(data.user); 
-                this.props.setWeight(data.macros); 
-                this.props.setMacros(data.weight); 
+                this.props.setWeight(data.weight); 
+                this.props.setMacros(data.macros); 
                 this.props.history.push('/home');
             } else {
                 alert('Invalid Registration')

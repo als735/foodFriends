@@ -1,4 +1,4 @@
-
+ 
 import React, { Component } from 'react'
 // import axios from 'axios'; 
 import { connect } from 'react-redux';
@@ -70,10 +70,10 @@ console.log(this.props, 'props')
                     <h2 className="macroLabelsFat">Fat</h2>
                 </div>
                 <div className='usersMacrosCurrentStats'>
-                    <h3 className='caloriesCurrentStats'>{this.props.user.first_name}</h3>
-                    <h3 className ='netCarbsCurrentStats'>{this.props.user.first_name}</h3>
-                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>{this.props.user.first_name}</h3>
-                    <h3 className ='fatCurrentStats'>{this.props.user.first_name}</h3>
+                    <h3 className='caloriesCurrentStats'>{this.props.macros.calories}</h3>
+                    <h3 className ='netCarbsCurrentStats'>{this.props.macros.net_carbs}</h3>
+                    <h3 className ='proteinCurrentStats' id='proteinCurrent'>{this.props.macros.protein}</h3>
+                    <h3 className ='fatCurrentStats'>{this.props.macros.fat}</h3>
                 </div>
                 <div className='editMacros'>
                     <div>
@@ -109,8 +109,8 @@ console.log(this.props, 'props')
                     <h2 className="goalWeightLabels">Goal Weight</h2>
                 </div>
                 <div className='usersWeightCurrentStats'>
-                    <h3 className='weightCurrent'>{this.props.user.first_name}</h3>
-                    <h3 className ='goalWeight'>{this.props.user.first_name}</h3>
+                    <h3 className='weightCurrent'>{this.props.weight.current_weight}</h3>
+                    <h3 className ='goalWeight'>{this.props.weight.goal_weight}</h3>
                 </div>
                 <div className='editWeight'>
                     <div>

@@ -14,7 +14,7 @@
 
 .macroLabelsCals {
   font-size: 40px;
-  margin-left: 280px; 
+  margin-left: 260px; 
   padding: 5px; 
   border: solid 3px black;
   background-color: #C8D5B9; 
@@ -56,7 +56,7 @@
 
 .caloriesCurrentStats {
     font-size: 30px; 
-    margin-left: 120px; 
+    margin-left: 80px; 
     border: solid 1px black; 
     background-color: white; 
     padding-left: 10px; 
@@ -72,14 +72,14 @@
 
 .proteinCurrentStats {
     font-size: 30px; 
-    margin-left: 225px; 
+    margin-left: 215px; 
     border: solid 1px black; 
     background-color: white; 
 }
 
 .fatCurrentStats {
     font-size: 30px; 
-    margin-left: 175px; 
+    margin-left: 160px; 
     border: solid 1px black; 
     background-color: white; 
 }
@@ -176,7 +176,7 @@
 
 .weightCurrent{
     font-size: 30px; 
-    margin-left: 190px; 
+    margin-left: 200px; 
     border: solid 1px black; 
     background-color: white; 
     padding-left: 10px; 
@@ -185,7 +185,7 @@
 
 .goalWeight {
     font-size: 30px; 
-    margin-left: 475px; 
+    margin-left: 455px; 
     border: solid 1px black; 
     background-color: white; 
 }
