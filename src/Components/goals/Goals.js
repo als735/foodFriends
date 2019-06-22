@@ -1,6 +1,6 @@
  
 import React, { Component } from 'react'
-// import axios from 'axios'; 
+import axios from 'axios'; 
 import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './Goals.css'; 
@@ -9,28 +9,50 @@ import * as actions from '../../Ducks/action_creator';
 
 class Goals extends Component {
     state = {
-        caloriess : '',
+        calories : '',
         net_carbs : '',
         protein : '', 
         fat : '',
         current_weight : '',
         goal_weight: '',
-        life_goal: ''
+        life_goal: '',
     }; 
 
-//     goalGrab = () => {
-//         debugger; 
-//         axios.get('/api/auth/register').then(res => {
-//             debugger; 
-//             if(res.data){
-//                 console.log(res.data.user, 'data');
-//                 this.props.setMacros(res.data.user);
-//             }else{
-//                 this.props.history.push('/')
-//             }
-//         })
-//         .catch(err => console.log(err))
-//    }
+updateMacros = (columnName) => {
+    const goalObj = {
+        macros_id: this.props.macros.macros_id,
+        columnName, 
+        value: this.state[columnName]
+    }
+    axios.put('/api/goals/macros', goalObj).then(({data}) => {
+        // debugger; 
+        if(data) {
+            this.props.setMacros(data[0]); 
+        } else {
+            alert('Invalid Update')
+        }
+        console.log(data.macros, 'data')
+    })
+
+}
+
+updateWeight = (columnName) => {
+    const goalObj = {
+        weight_id: this.props.weight.weight_id,
+        columnName, 
+        value: this.state[columnName]
+    }
+    axios.put('/api/goals/weight', goalObj).then(({data}) => {
+        // debugger; 
+        if(data) {
+            this.props.setWeight(data[0]); 
+        } else {
+            alert('Invalid Update')
+        }
+        console.log(data.weight, 'data')
+    })
+
+}
 
 
     handleInputChange= (e) => {
@@ -41,6 +63,7 @@ class Goals extends Component {
         this.setState({
           [name] :value
         }); 
+        console.log("state change", this.state); 
       }
 
     render() {
@@ -78,27 +101,44 @@ console.log(this.props, 'props')
                 <div className='editMacros'>
                     <div>
                         <label htmlFor="" className='calsEditMacros'> Calories
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name='calories'
+                            value={this.state.calories}
+                            onChange={this.handleInputChange}
+                            />
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons' onClick={() => {this.updateMacros('calories')}}>Edit</button>
                     </div>
                     <div>
                         <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name="net_carbs"
+                            value={this.state.net_carbs}
+                            onChange={this.handleInputChange}/>
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons' onClick={() => {this.updateMacros('net_carbs')}}>Edit</button>
                     </div>
                     <div>
                         <label htmlFor="" className='proteinEditMacros'> Protein
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name="protein"
+                            value={this.state.protein}
+                            onChange={this.handleInputChange}/>
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons'onClick={() => {this.updateMacros('protein')}} >Edit</button>
                     </div>
                     <div>
                         <label htmlFor="" className='fatEditMacros'> Fat
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name="fat"
+                            value={this.state.fat}
+                            onChange={this.handleInputChange}/>
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons' onClick={() => {this.updateMacros('fat')}}>Edit</button>
                     </div>
                 </div>
                 <div>
@@ -115,19 +155,27 @@ console.log(this.props, 'props')
                 <div className='editWeight'>
                     <div>
                         <label htmlFor="" className='currentWeightEdit'> Current Weight
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name="current_weight"
+                            value={this.state.current_weight}
+                            onChange={this.handleInputChange}/>
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons' onClick={() => {this.updateWeight('current_weight')}}>Edit</button>
                     </div>
                     <div>
                         <label htmlFor="" className='goalWeightEdit'> Goal Weight
-                        <input type="text" onChange={this.state.handleInputChange}/>
+                        <input 
+                            type="text" 
+                            name="goal_weight"
+                            value={this.state.goal_weight}
+                            onChange={this.handleInputChange}/>
                         </label>
-                        <button className='editButtons'>Edit</button>
+                        <button className='editButtons' onClick={() => {this.updateWeight('goal_weight')}}>Edit</button>
                     </div>
                 </div>
                 <div className='lifeGoalsBox'>
-                    <textarea name="lifeGoals" id="" onChange={this.state.handleInputChange} className='lifeGoalsBox'></textarea>
+                    <textarea name="lifeGoals" id="" onChange={this.handleInputChange} className='lifeGoalsBox'></textarea>
                         <div className='goalButtonBox'>
                             <button className='addGoalsButton'>Add</button>
                             <button className='deleteGoalsButton'>Delete</button>

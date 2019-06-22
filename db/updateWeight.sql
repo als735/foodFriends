@@ -1,0 +1,1 @@
+update weight_goals set current_weight = $2, goal_weight = $3  where weight_id = $1 

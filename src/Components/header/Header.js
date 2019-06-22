@@ -24,7 +24,6 @@ class Header extends Component {
     //   }
 
     logout = () => {
-        debugger 
         axios.post('api/auth/logout')
         .then(results => {
             if(results.success){
