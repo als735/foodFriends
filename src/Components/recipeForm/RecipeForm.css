@@ -48,6 +48,9 @@
         margin-right: 100px; 
 }
 
+.perServing{
+        text-decoration: underline; 
+}
 .usersMealMacros {
         border: solid 2px black; 
         width: 250px; 

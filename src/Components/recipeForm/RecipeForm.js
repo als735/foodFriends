@@ -37,37 +37,9 @@ class RecipeForm extends Component {
         }); 
       }
 
-    //   componentDidMount(){
-    //     this.getApi();
-    // }
 
 
-    //   getApi=(recipe) => {
-    //       debugger; 
-    //     const {title, ingredients} = recipe; 
-    //     let config = {
-    //       headers: {
-    //         'Content-Type': 'application/json' 
-    //       }
-    //     }
-    //     let recipeAnalysis = {
-    //       title: title, 
-    //       ingr: ingredients
-    //     }; 
-        
-    //     axios.post(`https://api.edamam.com/api/nutrition-details?app_id=1476c8c7&app_key=a77d6976afe7c2ed195b70536e293653`,recipeAnalysis ,config).then(res => {
-    //     console.log('test', res.data)
-    //     this.setState({
-    //       calories : res.data.calories, 
-    //       yield : res.data.yield,
-    //       fat: res.data.totalNutrients.FAT.quantity,
-    //       carb: res.data.totalNutrients.CHOCDF.quantity, 
-    //       fiber: res.data.totalNutrients.FIBTG.quantity,
-    //       selectedRecipe: recipe, 
-    //     })
-    //   })
-
-    //   }
+    
 
     render() {
 
@@ -96,7 +68,6 @@ class RecipeForm extends Component {
                                             value={this.state.title} 
                                             onChange={this.handleInputChange}
                                         />
-                                        <button>Add:</button>
                                         <button>Make this Meal!</button>
                                     </label>
                                     <br/>
@@ -111,7 +82,6 @@ class RecipeForm extends Component {
                                             onChange={this.handleInputChange}
                                         />
                                     </label>
-                                    <button>Add:</button>
                                 </div>
                                 <div className='nutritionBox'>
                                     <div className='addIngredientsBox'>
@@ -131,6 +101,8 @@ class RecipeForm extends Component {
                                     </div>
                                     <div className='usersMealMacros'>
                                         <h2> Meal's Macros:</h2>
+                                        <h3 className=''>Yields:</h3>
+                                        <h3 className='perServing'> Macros Per Serving</h3>
                                         <h3 className=''>Calories: </h3>
                                         <h3 className =''>Net Carbs: </h3>
                                         <h3 className ='' id=''>Protein: </h3>

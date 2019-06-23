@@ -4,7 +4,7 @@ const massive = require('massive');
 const axios = require('axios');  
 const authenticate = require("./controller/authController");
 const goals = require("./controller/goalController");
-// const recipes? = require("./controller/authController");
+const recipe = require("./controller/recipeController"); 
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 
@@ -38,6 +38,9 @@ app.post('/api/auth/logout', authenticate.logout);
 // goal endpoints 
 app.put(`/api/goals/macros`, goals.editMacros); 
 app.put(`/api/goals/weight`, goals.editWeight); 
+
+//recipe endpoints 
+app.post('/api/recipe/ingredients', recipe.addRecipe); 
 
 
   const port = process.env.port || 4011;
