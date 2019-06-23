@@ -17,7 +17,14 @@ class RecipeForm extends Component {
         ingredient: '',
         nutrition : [], 
         instructions: '', 
-        recipes: []
+        recipes: [],
+        selectedRecipe: {},
+        calories : " ", 
+        yield: 1 , 
+        fat: " ", 
+        carb: " ",
+        fiber: " ",
+        protein: " "
     }
 
     handleInputChange= (e) => {
@@ -29,6 +36,38 @@ class RecipeForm extends Component {
           [name] :value
         }); 
       }
+
+    //   componentDidMount(){
+    //     this.getApi();
+    // }
+
+
+    //   getApi=(recipe) => {
+    //       debugger; 
+    //     const {title, ingredients} = recipe; 
+    //     let config = {
+    //       headers: {
+    //         'Content-Type': 'application/json' 
+    //       }
+    //     }
+    //     let recipeAnalysis = {
+    //       title: title, 
+    //       ingr: ingredients
+    //     }; 
+        
+    //     axios.post(`https://api.edamam.com/api/nutrition-details?app_id=1476c8c7&app_key=a77d6976afe7c2ed195b70536e293653`,recipeAnalysis ,config).then(res => {
+    //     console.log('test', res.data)
+    //     this.setState({
+    //       calories : res.data.calories, 
+    //       yield : res.data.yield,
+    //       fat: res.data.totalNutrients.FAT.quantity,
+    //       carb: res.data.totalNutrients.CHOCDF.quantity, 
+    //       fiber: res.data.totalNutrients.FIBTG.quantity,
+    //       selectedRecipe: recipe, 
+    //     })
+    //   })
+
+    //   }
 
     render() {
 
@@ -87,6 +126,7 @@ class RecipeForm extends Component {
                                                         onChange={this.handleInputChange}
                                                     />
                                                 </label>
+                                                <button>Add:</button>
                                         </div>
                                     </div>
                                     <div className='usersMealMacros'>
