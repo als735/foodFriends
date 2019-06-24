@@ -27,7 +27,7 @@ massive(process.env.CONNECTION_STRING)
         console.log('the db is connected')
     })
     .catch(err => console.log('err in the db'));
-
+ 
 // authie endpoints 
 app.post('/api/auth/login', authenticate.login); 
 app.post('/api/auth/register', authenticate.register); 
@@ -39,8 +39,8 @@ app.post('/api/auth/logout', authenticate.logout);
 app.put(`/api/goals/macros`, goals.editMacros); 
 app.put(`/api/goals/weight`, goals.editWeight); 
 
-//recipe endpoints 
-// app.post('/api/recipe/ingredients', recipe.addRecipe); 
+//recipe endpoints  
+app.post('/api/recipe/addRecipe', recipe.addRecipe); 
 
 
   const port = process.env.port || 4011;

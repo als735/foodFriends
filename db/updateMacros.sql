@@ -1,1 +1,0 @@
-update macros set calories = $2, net_carbs = $3, protein = $4, fat = $5 where macros_id = $1 

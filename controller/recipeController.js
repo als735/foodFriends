@@ -1,4 +1,23 @@
-// module.exports = {
+module.exports = {
+    addRecipe: (req, res, next) => {
+        const db = req.app.get('db');
+        const {session} = req; 
+
+        const {title, instructions, recipe_pic} = req.body; 
+        const loadRecipe = {recipe: {}}; 
+
+        db.recipes.insert({title, instructions, recipe_pic})
+        .then((recipe) => {
+            loadRecipe.recipe = recipe; 
+            res.status(200).send(loadRecipe); 
+        }) 
+        .catch((err) => {
+            res.send({success:false, err})
+        })
+   }, 
+
+}
+    //module.exports = { 
     // addRecipe: (req, res, next) => {
     //     const db = req.app.get('db');
     //     const {session} = req; 
@@ -21,7 +40,3 @@
     //     })
     // }
 // }
-
-//do I want to add them imdividually? 
-//I need to find a way to connect the two so that the recipe will only pop up the ingredients involved in the recipe itself 
-// i'm not really sure how to do this... but we will figure it out! 

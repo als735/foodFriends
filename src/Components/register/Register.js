@@ -33,7 +33,7 @@ class Register extends Component {
             goal_weight: this.state.goal_weight  }; 
             
         axios.post('/api/auth/register', registerObj).then(({ data }) => { 
-            debugger; 
+            // debugger; 
             if (data) {
                 this.props.setUser(data.user); 
                 this.props.setWeight(data.weight); 

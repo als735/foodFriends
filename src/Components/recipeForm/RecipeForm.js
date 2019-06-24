@@ -11,8 +11,8 @@ import axios from 'axios';
 class RecipeForm extends Component {
     
     state = {
-        title: 'Meal title:',
-        imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy67qKEMJNh_JsKfsEY3BTVbfSzvXi9F0QzwgKxC9fxTzYBEIb', 
+        title: '',
+        recipe_pic: '', 
         ingredientArr : [],
         ingredient: '',
         instructions: '', 
@@ -31,6 +31,25 @@ class RecipeForm extends Component {
         fat : ''
     }
 
+    createMeal = () => {
+        const mealObj = {
+            title: this.state.title,
+            recipe_pic : this.state.recipe_pic, 
+            instructions: this.state.instructions}; 
+        axios.post('/api/recipe/addRecipe', mealObj).then(({data}) => {
+            debugger; 
+            if(data.recipe) {
+                this.props.setRecipe(data.recipe);
+            }
+            else {
+                alert('Invalid Meal Card')
+            }
+            console.log(data.recipe, 'recipe data')
+         }); 
+      }; 
+    
+
+
     handleInputChange= (e) => {
         const target = e.target; 
         const value = target.value; 
@@ -47,9 +66,6 @@ class RecipeForm extends Component {
           this.setState({
               ingredientArr: [...this.state.ingredientArr, this.state.ingredient]
           }) 
-        //   .then((res) => {
-        //     this.getApiData(e); 
-        //   })
           console.log(this.state, 'state2'); 
       }
 
@@ -90,7 +106,8 @@ class RecipeForm extends Component {
 
         let list = this.state.ingredientArr.map((ingredient,i)=> { // 
             return <li key={i}>{ingredient}</li> // returning each individual li    
-        })
+        }) 
+
 
          // let title = null; 
         // let ingredients = null; 
@@ -116,6 +133,7 @@ class RecipeForm extends Component {
                             <div className='newMealBox'>
                                 <div>
                                     <label htmlFor="" className='newMealTitle'> 
+                                    Meal title:
                                         <input 
                                             className='sizeMealInput'
                                             type='text' 
@@ -124,17 +142,17 @@ class RecipeForm extends Component {
                                             value={this.state.title} 
                                             onChange={this.handleInputChange}
                                         />
-                                        <button>Make this Meal!</button>
+                                        <button onClick={this.createMeal}>Make this Meal!</button>
                                     </label>
                                     <br/>
                                     <br/>
-                                    <label htmlFor="" className='imageURL'>
+                                    <label htmlFor="" className='recipe_pic'>
                                         Image URL: 
                                         <input 
                                             type='text' 
-                                            name='imageURL' 
+                                            name='recipe_pic' 
                                             size='180'
-                                            value={this.state.imageURL} 
+                                            value={this.state.recipe_pic} 
                                             onChange={this.handleInputChange}
                                         />
                                     </label>
@@ -153,6 +171,7 @@ class RecipeForm extends Component {
                                                     />
                                                 </label>
                                                 <button onClick={this.handleIngredientsClick}>Add:</button>
+                                                {/* <button> Get Nutrients</button> */}
                                                 <ul>{list}</ul>
                                         </div>
                                     </div>
@@ -180,7 +199,7 @@ class RecipeForm extends Component {
                                              <textarea name='instructions' value={this.state.instructions} onChange={this.handleInputChange}rows="12"
                                              className="instructionsBox"
                                              />
-                                            <img className='formImage' src={this.state.imageURL} alt=""/>
+                                            <img className='formImage' src={this.state.recipe_pic} alt=""/>
                                         </div>
                                     </label>
                                     </div>
