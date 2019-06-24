@@ -5,26 +5,30 @@ import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './RecipeForm.css'; 
 import * as actions from '../../Ducks/action_creator';
+import axios from 'axios';
 
 
 class RecipeForm extends Component {
     
     state = {
-        title: '',
+        title: 'Meal title:',
         imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy67qKEMJNh_JsKfsEY3BTVbfSzvXi9F0QzwgKxC9fxTzYBEIb', 
-        recipePic : '', 
-        ingredientList : [],
+        ingredientArr : [],
         ingredient: '',
-        nutrition : [], 
         instructions: '', 
         recipes: [],
         selectedRecipe: {},
-        calories : " ", 
-        yield: 1 , 
-        fat: " ", 
-        carb: " ",
-        fiber: " ",
-        protein: " "
+        recipe_yield: 1 , 
+        recipe_calories : '', 
+        recipe_fat: '', 
+        recipe_net_carbs: '',
+        recipe_carb: '',
+        recipe_fiber: '', 
+        recipe_protein: '',
+        calories : '',
+        net_carbs : '',
+        protein : '', 
+        fat : ''
     }
 
     handleInputChange= (e) => {
@@ -35,6 +39,46 @@ class RecipeForm extends Component {
         this.setState({
           [name] :value
         }); 
+        console.log(this.state, 'current state'); 
+      }
+
+      handleIngredientsClick = (e) => {
+          e.preventDefault()
+          this.setState({
+              ingredientArr: [...this.state.ingredientArr, this.state.ingredient]
+          }) 
+        //   .then((res) => {
+        //     this.getApiData(e); 
+        //   })
+          console.log(this.state, 'state2'); 
+      }
+
+      getApiData=(recipe) => {
+          debugger; 
+          const {title, ingredientArr} = recipe;
+          let config = {
+              headers: {
+                'Content-Type': 'application/json' 
+              }
+          }
+
+          let recipeAnalysis = {
+              title: title,
+              ingr : ingredientArr
+          }; 
+
+          axios.post(`https://api.edamam.com/api/nutrition-details?app_id=1476c8c7&app_key=a77d6976afe7c2ed195b70536e293653`,recipeAnalysis ,config).then(res => {
+            console.log('test', res.data)
+            debugger; 
+              this.setState({
+                  recipe_calories : res.data.calories,
+                  recipe_yield: res.data.yield,
+                  recipe_fat: res.data.totalNutrients.FAT.quantity,
+                  recipe_carb: res.data.totalNutrients.CHOCDF.quantity,
+                  recipe_fiber: res.data.totalNutrients.FIBTG.quantity,
+                  selectedRecipe: recipe, 
+              }) 
+          })
       }
 
 
@@ -42,6 +86,18 @@ class RecipeForm extends Component {
     
 
     render() {
+        console.log('props', this.props)
+
+        let list = this.state.ingredientArr.map((ingredient,i)=> { // 
+            return <li key={i}>{ingredient}</li> // returning each individual li    
+        })
+
+         // let title = null; 
+        // let ingredients = null; 
+        let remainderCals = this.state.calories - this.state.recipe_calories; 
+        let remainderCarbs = this.state.net_carbs - this.state.recipe_net_carbs; 
+        let remainderProtein = this.state.protein - this.state.recipe_protein; 
+        let remainderFat = this.state.fat - remainderCarbs; 
 
         return (
             <div className='recipeFormPage'>
@@ -59,12 +115,12 @@ class RecipeForm extends Component {
                         <div>
                             <div className='newMealBox'>
                                 <div>
-                                    <label htmlFor="" className='newMealTitle'>
-                                        Meal Title: 
+                                    <label htmlFor="" className='newMealTitle'> 
                                         <input 
+                                            className='sizeMealInput'
                                             type='text' 
                                             name='title' 
-                                            size='70'
+                                            size='50'
                                             value={this.state.title} 
                                             onChange={this.handleInputChange}
                                         />
@@ -77,7 +133,7 @@ class RecipeForm extends Component {
                                         <input 
                                             type='text' 
                                             name='imageURL' 
-                                            size='105'
+                                            size='180'
                                             value={this.state.imageURL} 
                                             onChange={this.handleInputChange}
                                         />
@@ -90,30 +146,31 @@ class RecipeForm extends Component {
                                                     Add Ingredients: 
                                                     <input 
                                                         type='text' 
-                                                        name='imageURL' 
+                                                        name='ingredient' 
                                                         size='40'
                                                         value={this.state.ingredient} 
                                                         onChange={this.handleInputChange}
                                                     />
                                                 </label>
-                                                <button>Add:</button>
+                                                <button onClick={this.handleIngredientsClick}>Add:</button>
+                                                <ul>{list}</ul>
                                         </div>
                                     </div>
                                     <div className='usersMealMacros'>
                                         <h2> Meal's Macros:</h2>
-                                        <h3 className=''>Yields:</h3>
+                                        <h3 className=''>Yields:{this.props.recipe_yield}</h3>
                                         <h3 className='perServing'> Macros Per Serving</h3>
-                                        <h3 className=''>Calories: </h3>
-                                        <h3 className =''>Net Carbs: </h3>
-                                        <h3 className ='' id=''>Protein: </h3>
-                                        <h3 className =''>Fat: </h3>
+                                        <h3 className=''>Calories: {this.props.recipe_calories}</h3>
+                                        <h3 className =''>Net Carbs: {this.props.recipe_net_carbs} </h3>
+                                        <h3 className ='' id=''>Protein: {this.props.recipe_protein} </h3>
+                                        <h3 className =''>Fat: {this.props.recipe_fat} </h3>
                                     </div>
                                     <div className='usersMealMacros'>
                                         <h2> Daily Remainder:</h2>
-                                        <h3 className=''>Calories: {this.props.macros.calories}</h3>
-                                        <h3 className =''>Net Carbs: {this.props.macros.net_carbs}</h3>
-                                        <h3 className ='' id=''>Protein: {this.props.macros.protein}</h3>
-                                        <h3 className =''>Fat: {this.props.macros.fat}</h3>
+                                        <h3 className=''>Calories: {remainderCals}</h3>
+                                        <h3 className =''>Net Carbs: {remainderCarbs}</h3>
+                                        <h3 className ='' id=''>Protein: {remainderProtein}</h3>
+                                        <h3 className =''>Fat: {remainderFat}</h3>
                                     </div>
                                 </div>
                                 <div className='instructionsImageBox'>

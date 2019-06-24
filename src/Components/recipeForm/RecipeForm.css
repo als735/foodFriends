@@ -27,7 +27,13 @@
         border: solid 2px black; 
 }
 .newMealTitle {
-        font-size: 25pt; 
+        font-size: 30pt; 
+        margin-top: 20px; 
+        margin-left: 20px; 
+}
+
+.sizeMealInput {
+        font-size: 20pt; 
 }
 
 .nutritionBox{
@@ -62,6 +68,7 @@
 }
 .imageURL {
         font-size: 15pt; 
+        margin-left: 20px; 
 }
 
 .instructionsImageBox {

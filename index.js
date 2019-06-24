@@ -40,7 +40,7 @@ app.put(`/api/goals/macros`, goals.editMacros);
 app.put(`/api/goals/weight`, goals.editWeight); 
 
 //recipe endpoints 
-app.post('/api/recipe/ingredients', recipe.addRecipe); 
+// app.post('/api/recipe/ingredients', recipe.addRecipe); 
 
 
   const port = process.env.port || 4011;
