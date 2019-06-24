@@ -20,10 +20,11 @@
 }
 
 .newMealBox {
+        padding: 10px; 
         margin-left: 200px; 
         margin-bottom: 50px; 
         margin-right: 50px; 
-        width: 1300px; 
+        width: 1100px; 
         border: solid 2px black; 
 }
 .newMealTitle {
@@ -36,11 +37,9 @@
         font-size: 20pt; 
 }
 
-.nutritionBox{
-        margin-top: 30px; 
-        display: flex; 
-        flex-direction: row;
-        margin-bottom: 30px; 
+.makeMealButton {
+        margin-left: 100px; 
+        height: 30px; 
 }
 
 .addIngredientsBox {
@@ -54,18 +53,6 @@
         margin-right: 100px; 
 }
 
-.perServing{
-        text-decoration: underline; 
-}
-.usersMealMacros {
-        border: solid 2px black; 
-        width: 250px; 
-        margin-top: 30px; 
-        margin-left: 10px; 
-        margin-bottom: 30px; 
-        padding: 10px; 
-        font-size: 12pt; 
-}
 .recipe_pic {
         font-size: 15pt; 
         margin-left: 20px; 
@@ -87,8 +74,9 @@
 
 .formImage {
         box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.2);
-        width: 300px;
-        margin-left: 200px;
+        width: 400px;
+        height: 300px; 
+        margin-left: 100px;
         margin-top: 10px;
         margin-bottom: 5px;
 }

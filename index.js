@@ -33,7 +33,7 @@ app.post('/api/auth/login', authenticate.login);
 app.post('/api/auth/register', authenticate.register); 
 app.get('/api/auth/me', authenticate.authMe); 
 app.post('/api/auth/logout', authenticate.logout); 
-
+ 
 
 // goal endpoints 
 app.put(`/api/goals/macros`, goals.editMacros); 
@@ -41,6 +41,9 @@ app.put(`/api/goals/weight`, goals.editWeight);
 
 //recipe endpoints  
 app.post('/api/recipe/addRecipe', recipe.addRecipe); 
+app.post('/api/recipe/addIngredients', recipe.addIngredients);
+app.post('/api/recipe/addNutrients', recipe.addNutrients); 
+
 
 
   const port = process.env.port || 4011;

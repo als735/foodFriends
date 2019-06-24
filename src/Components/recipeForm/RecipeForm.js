@@ -38,8 +38,9 @@ class RecipeForm extends Component {
             instructions: this.state.instructions}; 
         axios.post('/api/recipe/addRecipe', mealObj).then(({data}) => {
             debugger; 
-            if(data.recipe) {
+            if(data) {
                 this.props.setRecipe(data.recipe);
+                this.props.history.push('/lunchBox'); 
             }
             else {
                 alert('Invalid Meal Card')
@@ -111,10 +112,7 @@ class RecipeForm extends Component {
 
          // let title = null; 
         // let ingredients = null; 
-        let remainderCals = this.state.calories - this.state.recipe_calories; 
-        let remainderCarbs = this.state.net_carbs - this.state.recipe_net_carbs; 
-        let remainderProtein = this.state.protein - this.state.recipe_protein; 
-        let remainderFat = this.state.fat - remainderCarbs; 
+        
 
         return (
             <div className='recipeFormPage'>
@@ -142,7 +140,7 @@ class RecipeForm extends Component {
                                             value={this.state.title} 
                                             onChange={this.handleInputChange}
                                         />
-                                        <button onClick={this.createMeal}>Make this Meal!</button>
+                                        <button className='makeMealButton' onClick={this.createMeal}>Make this Meal!</button>
                                     </label>
                                     <br/>
                                     <br/>
@@ -151,7 +149,7 @@ class RecipeForm extends Component {
                                         <input 
                                             type='text' 
                                             name='recipe_pic' 
-                                            size='180'
+                                            size='100'
                                             value={this.state.recipe_pic} 
                                             onChange={this.handleInputChange}
                                         />
@@ -175,23 +173,7 @@ class RecipeForm extends Component {
                                                 <ul>{list}</ul>
                                         </div>
                                     </div>
-                                    <div className='usersMealMacros'>
-                                        <h2> Meal's Macros:</h2>
-                                        <h3 className=''>Yields:{this.props.recipe_yield}</h3>
-                                        <h3 className='perServing'> Macros Per Serving</h3>
-                                        <h3 className=''>Calories: {this.props.recipe_calories}</h3>
-                                        <h3 className =''>Net Carbs: {this.props.recipe_net_carbs} </h3>
-                                        <h3 className ='' id=''>Protein: {this.props.recipe_protein} </h3>
-                                        <h3 className =''>Fat: {this.props.recipe_fat} </h3>
                                     </div>
-                                    <div className='usersMealMacros'>
-                                        <h2> Daily Remainder:</h2>
-                                        <h3 className=''>Calories: {remainderCals}</h3>
-                                        <h3 className =''>Net Carbs: {remainderCarbs}</h3>
-                                        <h3 className ='' id=''>Protein: {remainderProtein}</h3>
-                                        <h3 className =''>Fat: {remainderFat}</h3>
-                                    </div>
-                                </div>
                                 <div className='instructionsImageBox'>
                                     <label className='instructionsTitle'htmlFor="
                                     ">Instructions:
