@@ -49,8 +49,6 @@ class RecipeForm extends Component {
          }); 
       }; 
     
-
-
     handleInputChange= (e) => {
         const target = e.target; 
         const value = target.value; 
@@ -70,37 +68,6 @@ class RecipeForm extends Component {
           console.log(this.state, 'state2'); 
       }
 
-      getApiData=(recipe) => {
-          debugger; 
-          const {title, ingredientArr} = recipe;
-          let config = {
-              headers: {
-                'Content-Type': 'application/json' 
-              }
-          }
-
-          let recipeAnalysis = {
-              title: title,
-              ingr : ingredientArr
-          }; 
-
-          axios.post(`https://api.edamam.com/api/nutrition-details?app_id=1476c8c7&app_key=a77d6976afe7c2ed195b70536e293653`,recipeAnalysis ,config).then(res => {
-            console.log('test', res.data)
-            debugger; 
-              this.setState({
-                  recipe_calories : res.data.calories,
-                  recipe_yield: res.data.yield,
-                  recipe_fat: res.data.totalNutrients.FAT.quantity,
-                  recipe_carb: res.data.totalNutrients.CHOCDF.quantity,
-                  recipe_fiber: res.data.totalNutrients.FIBTG.quantity,
-                  selectedRecipe: recipe, 
-              }) 
-          })
-      }
-
-
-
-    
 
     render() {
         console.log('props', this.props)

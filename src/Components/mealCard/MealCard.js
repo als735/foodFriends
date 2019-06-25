@@ -9,6 +9,7 @@ import * as actions from '../../Ducks/action_creator';
 
 class MealCard extends Component {
     state = {
+        recipes: '', 
         calories: '',
         recipe_calories: '',
         net_carbs : '',
@@ -16,7 +17,10 @@ class MealCard extends Component {
         protein: '',
         recipe_protein: '',
         fat: '',
-        recipe_fat: ''
+        recipe_fat: '',
+        title: '',
+        instructions: '',
+        recipe_pic: ''
     }
     // constructor(props){
     //     super(props); 
@@ -32,6 +36,7 @@ class MealCard extends Component {
     //       [name] :value
     //     }); 
     //   }
+
 
     render() {
 
