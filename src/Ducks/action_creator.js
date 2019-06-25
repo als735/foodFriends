@@ -25,7 +25,7 @@ export const setLife = (life) => {
         type:"setLife",
         payload:life,
     }
-} 
+}  
 
 export const setRecipe = (recipe) => {
     return {
@@ -38,5 +38,12 @@ export const setIngredients = (ingredients) => {
     return {
         type:"setIngredients",
         payload:ingredients,
+    }
+} 
+
+export const setRecipeNutrition = (recipeNutrition) => {
+    return {
+        type:"setRecipeNutrition",
+        payload:recipeNutrition,
     }
 } 

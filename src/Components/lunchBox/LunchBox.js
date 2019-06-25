@@ -1,25 +1,33 @@
 
 import React, { Component } from 'react'
 // import axios from 'axios'; 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './LunchBox.css'; 
 
 class LunchBox extends Component {
-    // constructor(props){
-    //     super(props); 
+    
 
-    // }
+//     componentDidMount(){
+//         this.authMe();
+//     }
 
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
-      
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
+//     authMe = () => {
+//         // debugger; 
+//         axios.get('/api/auth/me').then(res => {
+//             // debugger; 
+//             if(res.data){
+//                 console.log(res.data.user, res.data.macros,res.data.weight, 'data');
+//                 this.props.setUser(res.data.user);
+//                 this.props.setWeight(res.data.weight);
+//                 this.props.setMacros(res.data.macros); 
+//             }else{
+//                 this.props.history.push('/')
+//             }
+//         })
+//         .catch(err => console.log(err))
+//    }
 
     render() {
 
@@ -44,4 +52,4 @@ class LunchBox extends Component {
     }
 }
 
-export default LunchBox;
+export default connect(state => state, actions)(LunchBox);

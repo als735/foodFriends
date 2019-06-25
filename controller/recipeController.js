@@ -48,5 +48,21 @@ module.exports = {
         })
 }, 
 
+    // retrieveRecipes : (req, res, next) => {
+    //     const db = req.app.get('db');
+    //     const {recipe_id} = req.session; 
+    //     const {session} = req; 
+    //     const loadRecipes = {recipes: {}}; 
+
+    //     db.recipes.findOne({recipe_id})
+    //     .then ((recipes) => {
+    //         loadRecipes.recipes = recipes. 
+    //         res.send(loadRecipes); 
+    //     })
+    //     .catch(err => {
+    //         res.status(500).send(err)
+    //     })
+    // }
+
 }
     

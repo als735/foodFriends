@@ -54,4 +54,13 @@ const ingredients = (state= {}, action) => {
     } 
 }
 
-export default combineReducers({user, macros, weight, life, recipe, ingredients});
+const recipeNutrition = (state= {}, action) => {
+    switch(action.type){
+        case 'setRecipeNutrition':
+            return action.payload;
+        default:
+            return state;
+    } 
+}
+
+export default combineReducers({user, macros, weight, life, recipe, ingredients, recipeNutrition});

@@ -43,6 +43,7 @@ app.put(`/api/goals/weight`, goals.editWeight);
 app.post('/api/recipe/addRecipe', recipe.addRecipe); 
 app.post('/api/recipe/addIngredients', recipe.addIngredients);
 app.post('/api/recipe/addNutrients', recipe.addNutrients); 
+// app.get('/api/recipe/retrieve', recipe.retrieveRecipes); 
 
 
 

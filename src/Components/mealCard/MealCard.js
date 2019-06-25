@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './MealCard.css'; 
 import * as actions from '../../Ducks/action_creator';
-
+ 
 
 class MealCard extends Component {
     state = {
@@ -49,10 +49,20 @@ class MealCard extends Component {
                 <div className='homePage'>
                     {this.props.location.pathname !== '/' ? <Nav/> : ' '}
                 </div>
-            </div>
+                </div>
             <div>
+            <div className='lunchCard'>
                 <div>
-                    <div className='usersMealMacros'>
+                    <div>
+                        <h1>Meal Title Goes Here</h1>
+                    </div>
+                        <div className='recipeDetails'>
+                            <div>
+                                <div className='ingredientsBox'>
+                                    Ingredients List: 
+                                </div>
+                            </div>
+                                    <div className='usersMealMacros'>
                                         <h2> Meal's Macros:</h2>
                                         <h3 className=''>Yields:{this.props.recipe_yield}</h3>
                                         <h3 className='perServing'> Macros Per Serving</h3>
@@ -68,6 +78,13 @@ class MealCard extends Component {
                                         <h3 className ='' id=''>Protein: {remainderProtein}</h3>
                                         <h3 className =''>Fat: {remainderFat}</h3>
                                     </div>
+                            </div> 
+                        </div>
+                        <div className='instructImage'>
+                            <div className='instructionsBox'></div>
+                            <div className='mealCardImage'>
+                            </div>
+                        </div>
                 </div>
             </div>
 
