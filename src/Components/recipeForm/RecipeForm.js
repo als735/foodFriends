@@ -12,7 +12,7 @@ class RecipeForm extends Component {
     
     state = {
         title: '',
-        recipe_pic: '', 
+        recipe_pic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy67qKEMJNh_JsKfsEY3BTVbfSzvXi9F0QzwgKxC9fxTzYBEIb', 
         ingredientArr : [],
         ingredient: '',
         instructions: '', 
