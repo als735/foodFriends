@@ -1,18 +1,42 @@
 
 import React, { Component } from 'react'
-// import axios from 'axios'; 
+import axios from 'axios'; 
 import { connect } from 'react-redux';
 import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './LunchBox.css'; 
 // import RecipeCards from './RecipeCards'; 
 
-
 class LunchBox extends Component {
     state = {
         recipes: [],
-        recipe_pic: ''
+        recipe_pic: '',
+        listOfRecipes: [],
+        listOfIngredients: [],
+        listOfNutrition: []
     }
+
+    componentDidMount(){
+        this.getRecipes(); 
+    }
+
+
+    getRecipes = () => {
+        //    debugger; 
+           axios.get('/api/recipe/retrieve').then((res) => {
+               if(res.data){
+                   this.setState({
+                        listOfRecipes: res.data.recipes,
+                        listOfIngredients: res.data.ingredients,
+                        listOfNutrition: res.data.nutrition
+                   })
+                }
+                else {
+                    alert('No Recipes')
+                }
+                // console.log(this.state.listOfRecipes, this.state.listOfIngredients, this.state.listOfNutrition, 'recipe get data')
+            })
+        }
 
     render() {
 

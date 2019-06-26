@@ -9,24 +9,10 @@ import {Link} from "react-router-dom";
 import * as actions from '../../Ducks/action_creator';
 
 class Nav extends Component {
-    // constructor(props){
-    //     super(props); 
 
-    // }
-
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
-      
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
 
     componentDidMount(){
         this.authMe();
-        this.getRecipes(); 
     }
 
     authMe = () => {
@@ -42,22 +28,6 @@ class Nav extends Component {
             }
         })
         .catch(err => console.log(err))
-   }
-
-   getRecipes = () => {
-       debugger; 
-       axios.get('/api/recipe/retrieve').then((res) => {
-           if(res.data){
-               debugger; 
-               this.props.setRecipe(res.data.recipes); 
-               this.props.setIngredients(res.data.ingredients);
-               this.props.setRecipeNutrition(res.data.nutrition); 
-           }
-           else {
-               alert('No Recipes')
-           }
-           console.log(res.data, 'recipe get data')
-       })
    }
 
    
