@@ -50,23 +50,28 @@ module.exports = {
         .catch((err) => {
             res.send({success:false, err})
         })
-    } 
-}  // db.recipe.find({user_id: session.user.user_id})
+    }, 
+    retrieveRecipes : (req, res, next) => {
+        const db = req.app.get('db'); 
+        const {session} = req; 
+        const loadRecipes = {recipes : {}, ingredients: {}, nutrition: {}}
 
-    // retrieveRecipes : (req, res, next) => {
-    //     const db = req.app.get('db');
-    //     const {recipe_id} = req.session; 
-    //     const {session} = req; 
-    //     const loadRecipes = {user: session.user, recipes: {}};
-    //     if (session.user){
-    //         db.recipes.findOne({user_id:session.user.user_id})
-    //         .then((recipes) => {
-    //             loadRecipes.recipes=recipes; 
-    //             res.send(loadRecipes)
-    //         })
-    //     } else {
-    //         res.send(false)
-    //     }
-    // }
-// }
+            db.recipes.find({user_id: session.user.user_id})
+            .then((recipes) => {
+                loadRecipes.recipes = recipes; 
+                return db.ingredient_entry.find({user_id: session.user.user_id})
+            })
+            .then((ingredients) => {
+                loadRecipes.ingredients = ingredients
+                return db.recipe_nutrition.find({user_id: session.user.user_id})
+            })
+            .then((nutrition) => {
+                loadRecipes.nutrition = nutrition
+                res.send(loadRecipes); 
+            })
+            .catch((err) => {
+                res.send({success:false, err})
+            })
+    }
+}  
     

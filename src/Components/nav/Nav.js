@@ -26,6 +26,7 @@ class Nav extends Component {
 
     componentDidMount(){
         this.authMe();
+        this.getRecipes(); 
     }
 
     authMe = () => {
@@ -33,7 +34,6 @@ class Nav extends Component {
         axios.get('/api/auth/me').then(res => {
             // debugger; 
             if(res.data){
-                console.log(res.data.user, res.data.macros,res.data.weight, 'data');
                 this.props.setUser(res.data.user);
                 this.props.setWeight(res.data.weight);
                 this.props.setMacros(res.data.macros); 
@@ -42,6 +42,22 @@ class Nav extends Component {
             }
         })
         .catch(err => console.log(err))
+   }
+
+   getRecipes = () => {
+       debugger; 
+       axios.get('/api/recipe/retrieve').then((res) => {
+           if(res.data){
+               debugger; 
+               this.props.setRecipe(res.data.recipes); 
+               this.props.setIngredients(res.data.ingredients);
+               this.props.setRecipeNutrition(res.data.nutrition); 
+           }
+           else {
+               alert('No Recipes')
+           }
+           console.log(res.data, 'recipe get data')
+       })
    }
 
    

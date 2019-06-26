@@ -43,13 +43,12 @@ class RecipeForm extends Component {
             if(data) {
                 this.props.setRecipe(data.recipe);
                 this.props.setIngredients(data.savedIngredients); 
-                this.props.setRecipeNutrition(data.nutritio);
+                this.props.setRecipeNutrition(data.nutrition);
                 this.props.history.push('/lunchBox'); 
             }
             else {
                 alert('Invalid Meal Card')
             }
-            console.log(data.recipe, 'recipe data')
          }); 
       }; 
     
@@ -61,7 +60,6 @@ class RecipeForm extends Component {
         this.setState({
           [name] :value
         }); 
-        console.log(this.state, 'current state'); 
       }
 
       handleIngredientsClick = (e) => {
