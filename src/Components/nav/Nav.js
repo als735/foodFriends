@@ -44,6 +44,8 @@ class Nav extends Component {
         .catch(err => console.log(err))
    }
 
+   
+
     render() {
         const prof_pic = {
             yourFace : `url(${this.props.user.prof_pic})`

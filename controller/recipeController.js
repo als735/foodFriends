@@ -31,14 +31,14 @@ module.exports = {
         .then((nutrition) => {
             let servings = nutrition.data.yield; 
             let carb = nutrition.data.totalNutrients.CHOCDF.quantity; 
-            let fiber = nutrition.data.totalNutrients.FIBTG.quantity; 
-            let netCarbs = carb - fiber; 
-            let netCarbServing = netCarbs / servings; 
+            // let fibers = nutrition.data.totalNutrients.FIBTG.quantity; 
             let cal = nutrition.data.calories; 
-            let calServing = cal / servings; 
             let fats = nutrition.data.totalNutrients.FAT.quantity; 
-            let fatServing = fats / servings; 
             let proteins = nutrition.data.totalNutrients.PROCNT.quantity; 
+            // let netCarbsies = carb - fibers; 
+            let netCarbServing = carb / servings; 
+            let calServing = cal / servings; 
+            let fatServing = fats / servings; 
             let proteinServing = proteins / servings; 
 
             return db.recipe_nutrition.insert({recipe_calories: calServing, recipe_net_carbs: netCarbServing , recipe_fat: fatServing, recipe_protein: proteinServing, user_id: session.user.user_id, recipes_id: loadMeal.recipe.recipes_id, recipe_yields: servings})

@@ -22,24 +22,28 @@ class RecipeForm extends Component {
         recipe_calories : '', 
         recipe_fat: '', 
         recipe_net_carbs: '',
-        recipe_carb: '',
-        recipe_fiber: '', 
-        recipe_protein: '',
-        calories : '',
-        net_carbs : '',
-        protein : '', 
-        fat : ''
+        recipe_protein: ''
     }
 
     createMeal = () => {
+        debugger; 
         const mealObj = {
             title: this.state.title,
             recipe_pic : this.state.recipe_pic, 
-            instructions: this.state.instructions}; 
+            instructions: this.state.instructions,
+            ingredients: this.state.ingredientArr,
+            recipe_calories: this.state.recipe_calories,
+            recipe_net_carbs: this.state.recipe_net_carbs,
+            recipe_fat: this.state.recipe_fat,
+            recipe_protein: this.state.recipe_protein,
+            recipe_yield: this.state.recipe_yield
+        }; 
         axios.post('/api/recipe/addRecipe', mealObj).then(({data}) => {
             debugger; 
             if(data) {
                 this.props.setRecipe(data.recipe);
+                this.props.setIngredients(data.savedIngredients); 
+                this.props.setRecipeNutrition(data.nutritio);
                 this.props.history.push('/lunchBox'); 
             }
             else {
