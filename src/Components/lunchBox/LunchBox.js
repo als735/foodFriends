@@ -5,63 +5,19 @@ import { connect } from 'react-redux';
 import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './LunchBox.css'; 
+// import RecipeCards from './RecipeCards'; 
+
 
 class LunchBox extends Component {
     state = {
-        recipes: '',
+        recipes: [],
         recipe_pic: ''
     }
 
-//     componentDidMount(){
-//         this.loadLunchBox();
-//     }
-
-//     loadLunchBox = () => {
-//         // debugger; 
-//         axios.get('/api/recipe/retrieve').then(res => {
-//             // debugger; 
-//             if(res.data){
-//                 console.log(res.data.recipe, 'data2'); 
-//                 this.props.setRecipe(res.data.recipe);
-//             }else{
-//                     alert('Lunch Box Not Loading')
-//             }
-//         })
-//         .catch(err => console.log(err))
-//    }
-
-// getApiData=(recipe) => {
-//     debugger; 
-//     const {title, ingredientArr} = recipe;
-//     let config = {
-//         headers: {
-//           'Content-Type': 'application/json' 
-//         }
-//     }
-
-//     let recipeAnalysis = {
-//         title: title,
-//         ingr : ingredientArr
-//     }; 
-
-//     axios.post(`https://api.edamam.com/api/nutrition-details?app_id=1476c8c7&app_key=a77d6976afe7c2ed195b70536e293653`,recipeAnalysis ,config).then(res => {
-//       console.log('test', res.data)
-//       debugger; 
-//         this.setState({
-//             recipe_calories : res.data.calories,
-//             recipe_yield: res.data.yield,
-//             recipe_fat: res.data.totalNutrients.FAT.quantity,
-//             recipe_carb: res.data.totalNutrients.CHOCDF.quantity,
-//             recipe_fiber: res.data.totalNutrients.FIBTG.quantity,
-//             selectedRecipe: recipe, 
-//         }) 
-//     })
-// }
-
     render() {
 
-        // const recipes = this.state.recipes.map((e, i, a) => {
-        //     return <button className='mealCardMiniBox' key={i} onClick={()=>{this.props.getApiData(e)}}>Butt</button>
+        // const recipes = this.state.recipes.map((e, r) => {
+        //     return <RecipeCards key={e.recipes_id} id={e.recipes_id} title={e.title} recipe_pic={e.recipe_pic}/>
         // }) 
 
         return (
