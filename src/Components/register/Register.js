@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../../Ducks/action_creator';
 import './Register.css'; 
-
+ 
 class Register extends Component {
 
      state = {
@@ -60,131 +60,147 @@ class Register extends Component {
     render() {
         return (
             <div className='registerPage'>
-                <div>
-                    <h2>User's Info:</h2>
-                    <div className='usersInfo'>
-                        <div>
-                            <label htmlFor="">
-                                First Name: 
-                                <input 
-                                    type="text"
-                                    name="first_name"
-                                    value={this.state.first_name}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Last Name: 
-                                <input 
-                                    type="text"
-                                    name="last_name"
-                                    value={this.state.last_name}
-                                    onChange={this.handleInputChange}
-                                />                      
-                             </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Email: 
-                                <input 
-                                    type="text"
-                                    name="email"
-                                    value={this.state.email}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Password: 
-                                <input 
-                                    type="text"
-                                    name="password"
-                                    value={this.state.value}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
+                <div className='colorBlock'></div>
+                <div className='colorBlock2'></div>
+                    <div className='headerOutline'>
+                        <h1 id="headerReg">Friends <i>with</i> Food</h1>
                     </div>
-                    <br/>
-                    <h2>User's Macro Goals:</h2>
-                    <div className='usersMacros'>
-                        <div>
-                            <label htmlFor="">
-                                Calories:  
-                                <input 
-                                    type="text"
-                                    name="calories"
-                                    value={this.state.calories}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Net Carbs: 
-                                <input 
-                                    type="text"
-                                    name="net_carbs"
-                                    value={this.state.net_carbs}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Fat: 
-                                <input 
-                                    type="text"
-                                    name="fat"
-                                    value={this.state.fat}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Protein: 
-                                <input 
-                                    type="text"
-                                    name="protein"
-                                    value={this.state.protein}
-                                    onChange={this.handleInputChange}
-                                /> 
-                            </label>
-                        </div>
-                    </div>
-                    <h2>User's Weight Goals:</h2>
-                    <div className='usersMacros'>
-                        <div>
-                            <label htmlFor="">
-                                Current Weight:  
-                                <input 
-                                    type="text"
-                                    name="current_weight"
-                                    value={this.state.current_weight}
-                                    onChange={this.handleInputChange}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="">
-                                Goal Weight:  
-                                <input 
-                                    type="text"
-                                    name="goal_weight"
-                                    value={this.state.goal_weight}
-                                    onChange={this.handleInputChange}
-                                /> 
-                            </label>
-                        </div>
-                    </div>
+                <div className='registerMain'>
                     <div>
-                        <label htmlFor="">
-                            <button onClick={this.register}>Register User</button>
-                        </label>
+                        <h2 id="regTitle"><i>Register</i></h2>
+                    </div>
+                    <div className='outline1'>
+                        <h2 className='userInfoTitle'>User's Info:</h2>
+                        <div className='registrationInfo'>
+                            <div className='usersInfo'>
+                                <div>
+                                    <label htmlFor="">
+                                        First Name: 
+                                        <input 
+                                            type="text"
+                                            name="first_name"
+                                            value={this.state.first_name}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Last Name: 
+                                        <input 
+                                            type="text"
+                                            name="last_name"
+                                            value={this.state.last_name}
+                                            onChange={this.handleInputChange}
+                                        />                      
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Email: 
+                                        <input 
+                                            type="text"
+                                            name="email"
+                                            value={this.state.email}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Password: 
+                                        <input 
+                                            type="text"
+                                            name="password"
+                                            value={this.state.value}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                                </div>
+                            </div>
+                            <br/>
+                            <div>
+                            <h2>User's Macro Goals:</h2>
+                            <div className='usersMacros'>
+                                <div>
+                                    <label htmlFor="">
+                                        Calories:  
+                                        <input 
+                                            type="text"
+                                            name="calories"
+                                            value={this.state.calories}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                            </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Net Carbs: 
+                                        <input 
+                                            type="text"
+                                            name="net_carbs"
+                                            value={this.state.net_carbs}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Fat: 
+                                        <input 
+                                            type="text"
+                                            name="fat"
+                                            value={this.state.fat}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                            </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Protein: 
+                                        <input 
+                                            type="text"
+                                            name="protein"
+                                            value={this.state.protein}
+                                            onChange={this.handleInputChange}
+                                        /> 
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <div>
+                            <h2>User's Weight Goals:</h2>
+                            <div className='usersMacros'>
+                                <div>
+                                    <label htmlFor="">
+                                        Current Weight:  
+                                        <input 
+                                            type="text"
+                                            name="current_weight"
+                                            value={this.state.current_weight}
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label htmlFor="">
+                                        Goal Weight:  
+                                        <input 
+                                            type="text"
+                                            name="goal_weight"
+                                            value={this.state.goal_weight}
+                                            onChange={this.handleInputChange}
+                                        /> 
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <label htmlFor="">
+                                <button className='regButton' onClick={this.register}>Register User</button>
+                            </label>
+                        </div>
+                        <div>
+                        </div>
                     </div>
                 </div>
             </div>
