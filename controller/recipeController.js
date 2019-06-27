@@ -76,8 +76,8 @@ module.exports = {
         deleteRecipes : (req, res, next) => {
             const db = req.app.get('db');
             db.recipes.destroy({recipes_id: req.query.recipes_id})
-            .then(() => {
-                res.send({success: true}); 
+            .then((recipes) => {
+                res.send({success: true, recipes }); 
             })
             .catch(err => {
                 res.send({success: false, err}); 
