@@ -42,7 +42,11 @@ app.put(`/api/goals/weight`, goals.editWeight);
 //recipe endpoints  
 app.post('/api/recipe/addRecipe', recipe.makeMeal); 
 app.get('/api/recipe/retrieve', recipe.retrieveRecipes); 
-app.delete('/api/recipe/delete/:recipes_id', recipe.deleteRecipes);
+app.delete('/api/recipe/delete', recipe.deleteRecipes);
+app.get('/api/recipe/retrieveOne', recipe.retrieveThisRecipe); 
+
+
+
 
 
 

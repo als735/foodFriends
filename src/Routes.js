@@ -18,7 +18,7 @@ export default (
         <Route path="/groceryList" component={Grocery}/>
         <Route path="/home" component={Home}/>
         <Route path="/lunchBox" component={LunchBox}/>
-        <Route path="/mealCard" component={MealCard}/> 
+        <Route path="/mealCard/:recipes_id" component={MealCard}/> 
         <Route path="/planning" component={Plan}/>
         <Route path="/recipeForm" component={RecipeForm}/>
         <Route path="/register" component={Register}/>

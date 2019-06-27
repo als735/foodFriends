@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './LunchBox.css'; 
-// import RecipeCards from './RecipeCards'; 
+import RecipePosts from './RecipePosts'; 
 
 class LunchBox extends Component {
     state = {
-        recipes: [],
         recipe_pic: '',
         listOfRecipes: [],
         listOfIngredients: [],
@@ -36,13 +35,14 @@ class LunchBox extends Component {
                 }
                 // console.log(this.state.listOfRecipes, this.state.listOfIngredients, this.state.listOfNutrition, 'recipe get data')
             })
-        }
+        } 
 
     render() {
 
-        // const recipes = this.state.recipes.map((e, r) => {
-        //     return <RecipeCards key={e.recipes_id} id={e.recipes_id} title={e.title} recipe_pic={e.recipe_pic}/>
-        // }) 
+        const recipesLunchBox = this.state.listOfRecipes.map((e, i) => {
+            return <RecipePosts key={i} index={i} recipes_id={e.recipes_id} title={e.title} recipe_pic={e.recipe_pic}/>
+        })
+
 
         return (
             <div className='lunchBoxPage'>
@@ -56,10 +56,8 @@ class LunchBox extends Component {
             </div>
             <div>
                 <div>
-                    <h2 className="introH">What is Food <i>with</i> Friends?</h2>
-                    <p className="introP"> Food <i>with</i> Friends is an application that encourages you to become friends with food. So often in our lives we are unhappy due to the food we are eating, and our relationship to....</p>
-                    <div>
-                        {/* {recipes} */}
+                    <div className='recipesInBox'>
+                        {recipesLunchBox}
                     </div>
                 </div>
             </div>

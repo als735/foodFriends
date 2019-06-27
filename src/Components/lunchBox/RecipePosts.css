@@ -1,0 +1,24 @@
+
+.lunchBoxBox {
+    margin-top: 80px; 
+    margin-left: 200px; 
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.lunchBoxTile{
+    font-size: 10pt; 
+    width: 300px; 
+    height: 350px; 
+    background-color: #93B7BE; 
+    margin: 10px; 
+    padding-bottom: 15px; 
+}
+
+.lunchBoxImage {
+    margin-left: 30px; 
+}
+
+.checkBox {
+    zoom: 2.0; 
+}

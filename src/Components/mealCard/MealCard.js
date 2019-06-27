@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react'
-// import axios from 'axios'; 
+import axios from 'axios'; 
 import { connect } from 'react-redux';
 import Nav from '../nav/Nav' ; 
 import './MealCard.css'; 
 import * as actions from '../../Ducks/action_creator';
+import IngredientsList from './IngredientsList'; 
  
 
 class MealCard extends Component {
@@ -20,27 +21,45 @@ class MealCard extends Component {
         recipe_fat: '',
         title: '',
         instructions: '',
-        recipe_pic: ''
+        recipe_pic: '',
+        listOfRecipes: [],
+        listOfIngredients: [],
+        listOfNutrition: []
     }
-    // constructor(props){
-    //     super(props); 
 
-    // }
+    componentDidMount(){
+        this.getThisRecipe(); 
+    }
 
-    // handleInputChange= (e) => {
-    //     const target = e.target; 
-    //     const value = target.value; 
-    //     const name = target.name; 
-      
-    //     this.setState({
-    //       [name] :value
-    //     }); 
-    //   }
+    getThisRecipe = () => {
+        //    debugger; 
+           axios.get(`/api/recipe/retrieveOne/?recipes_id=${this.props.match.params.recipes_id}`).then((res) => {
+            //    debugger; 
+                   this.setState({
+                        title: res.data.recipes.title,
+                        recipe_pic: res.data.recipes.recipe_pic,
+                        instructions: res.data.recipes.instructions, 
+                        listOfIngredients: res.data.ingredients,
+                        recipe_calories: res.data.nutrition.recipe_calories,
+                        recipe_protein: res.data.nutrition.recipe_protein,
+                        recipe_net_carbs: res.data.nutrition.recipe_net_carbs,
+                        recipe_fat: res.data.nutrition.recipe_fat,
+                        recipe_yield: res.data.nutrition.recipe_yields 
+                    })
+                    console.log(this.state.title, this.state.listOfIngredients, this.state.recipe_calories, 'recipe get data')
+        }) 
+    } 
+
 
 
     render() {
+        // debugger; 
 
-        let remainderCals = this.state.calories - this.state.recipe_calories; 
+        const ingredientsArr = this.state.listOfIngredients.map((e, i) => {
+            return <IngredientsList key={i} index={i} ingredient={e.ingredient}/> 
+        })
+
+        let remainderCals = this.props.calories - this.state.recipe_calories; 
         let remainderCarbs = this.state.net_carbs - this.state.recipe_net_carbs; 
         let remainderProtein = this.state.protein - this.state.recipe_protein; 
         let remainderFat = this.state.fat - remainderCarbs; 
@@ -59,12 +78,13 @@ class MealCard extends Component {
             <div className='lunchCard'>
                 <div>
                     <div>
-                        <h1>Meal Title Goes Here</h1>
+                        <h1>{this.state.title}</h1>
                     </div>
                         <div className='recipeDetails'>
                             <div>
                                 <div className='ingredientsBox'>
                                     Ingredients List: 
+                                    {ingredientsArr}
                                 </div>
                             </div>
                                     <div className='usersMealMacros'>

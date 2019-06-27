@@ -83,6 +83,29 @@ module.exports = {
                 res.send({success: false, err}); 
             })
 
+        },
+        retrieveThisRecipe : (req, res, next) => {
+            const db = req.app.get('db'); 
+            const {recipes_id} = req.query; 
+            const loadThisRecipe = {recipes : {}, ingredients: {}, nutrition: {}}
+
+            db.recipes.findOne({recipes_id: recipes_id})
+            .then((recipes) => {
+                loadThisRecipe.recipes = recipes 
+                return db.ingredient_entry.find({recipes_id: recipes_id})
+            })
+            .then((ingredients) => {
+                loadThisRecipe.ingredients = ingredients 
+                return db.recipe_nutrition.findOne({recipes_id: recipes_id})
+            })
+            .then((nutrition) => {
+                loadThisRecipe.nutrition = nutrition
+                res.send(loadThisRecipe); 
+            })
+            .catch(err => {
+                res.send({success: false, err}); 
+            })
+
         }
 }  
     
