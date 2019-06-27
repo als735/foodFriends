@@ -46,7 +46,7 @@ class MealCard extends Component {
                         recipe_fat: res.data.nutrition.recipe_fat,
                         recipe_yield: res.data.nutrition.recipe_yields 
                     })
-                    console.log(this.state.title, this.state.listOfIngredients, this.state.recipe_calories, 'recipe get data')
+                    // console.log(this.state.title, this.state.listOfIngredients, this.state.recipe_calories, 'recipe get data')
         }) 
     } 
 
@@ -59,10 +59,12 @@ class MealCard extends Component {
             return <IngredientsList key={i} index={i} ingredient={e.ingredient}/> 
         })
 
-        let remainderCals = this.props.calories - this.state.recipe_calories; 
+
+
+        let remainderCals = this.state.calories - this.state.recipe_calories; 
         let remainderCarbs = this.state.net_carbs - this.state.recipe_net_carbs; 
         let remainderProtein = this.state.protein - this.state.recipe_protein; 
-        let remainderFat = this.state.fat - remainderCarbs; 
+        let remainderFat = this.state.fat - this.state.recipe_fat; 
 
         return (
             <div className='mealCardPage'>
@@ -83,18 +85,18 @@ class MealCard extends Component {
                         <div className='recipeDetails'>
                             <div>
                                 <div className='ingredientsBox'>
-                                    Ingredients List: 
+                                    <h2>Ingredients List: </h2>
                                     {ingredientsArr}
                                 </div>
                             </div>
                                     <div className='usersMealMacros'>
                                         <h2> Meal's Macros:</h2>
-                                        <h3 className=''>Yields:{this.props.recipe_yield}</h3>
+                                        <h3 className=''>Yields:{this.state.recipe_yield}</h3>
                                         <h3 className='perServing'> Macros Per Serving</h3>
-                                        <h3 className=''>Calories: {this.props.recipe_calories}</h3>
-                                        <h3 className =''>Net Carbs: {this.props.recipe_net_carbs} </h3>
-                                        <h3 className ='' id=''>Protein: {this.props.recipe_protein} </h3>
-                                        <h3 className =''>Fat: {this.props.recipe_fat} </h3>
+                                        <h3 className=''>Calories: {this.state.recipe_calories}</h3>
+                                        <h3 className =''>Net Carbs: {this.state.recipe_net_carbs} </h3>
+                                        <h3 className ='' id=''>Protein: {this.state.recipe_protein} </h3>
+                                        <h3 className =''>Fat: {this.state.recipe_fat} </h3>
                                     </div>
                                     <div className='usersMealMacros'>
                                         <h2> Daily Remainder:</h2>
@@ -106,9 +108,8 @@ class MealCard extends Component {
                             </div> 
                         </div>
                         <div className='instructImage'>
-                            <div className='instructionsBox'></div>
-                            <div className='mealCardImage'>
-                            </div>
+                            <div className='instructionsBox'><h2>Instructions:</h2>{this.state.instructions}</div>
+                            <img className='mealCardImage' src={this.state.recipe_pic} alt=''/>
                         </div>
                 </div>
             </div>
