@@ -7,27 +7,36 @@ const goals = require("./controller/goalController");
 const recipe = require("./controller/recipeController"); 
 const session = require("express-session");
 const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser'); 
+const cors = require('cors'); 
+const path = require('path'); 
 
 const app = express(); 
 let {SERVER_PORT} = process.env; 
 
 app.use(express.json());
+app.use(cors()); 
+app.use(bodyParser.json()); 
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false, 
+    resave: true, 
     saveUninitialized: true,
-    cookie: {maxAge: 1200000}
+    cookie: {maxAge: 60000}
   })
 ); 
 
-massive(process.env.CONNECTION_STRING)
+massive(process.env.DATABASE_URL)
     .then(dbInstance => {
         app.set('db', dbInstance)
         console.log('the db is connected')
     })
     .catch(err => console.log('err in the db'));
- 
+
+    /// Serves static files (Frontend). Must be above all of the routes.
+app.use(express.static(path.join(__dirname, '/build')));
+
+
 // authie endpoints 
 app.post('/api/auth/login', authenticate.login); 
 app.post('/api/auth/register', authenticate.register); 
@@ -46,9 +55,12 @@ app.delete('/api/recipe/delete', recipe.deleteRecipes);
 app.get('/api/recipe/retrieveOne', recipe.retrieveThisRecipe); 
 
 
-
-
-
+/// Catch all for routing. Must be below all other routes. 
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {
+        root: path.join(__dirname, "build")
+      })
+});
 
   const port = process.env.port || 4011;
   app.listen(SERVER_PORT, () => {
