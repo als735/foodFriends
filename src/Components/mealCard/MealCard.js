@@ -50,6 +50,18 @@ class MealCard extends Component {
         }) 
     } 
 
+    deleteThisRecipe = () => {
+        debugger; 
+        axios.delete(`/api/recipe/delete?recipes_id=${this.props.match.params.recipes_id}`).then(({data}) => {
+            debugger; 
+            if (data) {
+                this.props.setRecipe(data.recipe); 
+            } else {
+                alert('Could not delete')
+            }
+        })
+    }
+
 
 
     render() {
@@ -80,13 +92,13 @@ class MealCard extends Component {
             <div className='lunchCard'>
                 <div>
                     <div>
-                        <h1>{this.state.title}</h1>
+                        <h1 className='recipeTitle'>{this.state.title}</h1>
                     </div>
                         <div className='recipeDetails'>
                             <div>
                                 <div className='ingredientsBox'>
-                                    <h2>Ingredients List: </h2>
-                                    {ingredientsArr}
+                                    <h2 className='list'>Ingredients List: </h2>
+                                    <div className='list'>{ingredientsArr}</div>
                                 </div>
                             </div>
                                     <div className='usersMealMacros'>
@@ -108,9 +120,11 @@ class MealCard extends Component {
                             </div> 
                         </div>
                         <div className='instructImage'>
-                            <div className='instructionsBox'><h2>Instructions:</h2>{this.state.instructions}</div>
+                            <div className='instructionsBox'><h2>Instructions:</h2><div className='list'>{this.state.instructions}</div></div>
                             <img className='mealCardImage' src={this.state.recipe_pic} alt=''/>
                         </div>
+                        <button className='deleteMealButt' onClick={ () => {this.deleteThisRecipe()}}>Delete Meal</button>
+
                 </div>
             </div>
 

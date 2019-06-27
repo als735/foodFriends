@@ -13,7 +13,7 @@ class RecipePosts extends Component {
             recipe_pic: '',  
             profile_picture: ''
         }
-    }
+    } 
 
 render(){
     // debugger; 
@@ -22,18 +22,12 @@ render(){
             <Link to={`/mealCard/${this.props.recipes_id}`}>
             <div className='lunchBoxBox'>
                 <div className='lunchBoxTile'>
-                    <input className='checkBox' type="checkbox"></input> 
                     <h2>{this.props.title}</h2>
                     <img className='lunchBoxImage' src={this.props.recipe_pic} alt=""/>
                 </div>
 
             </div>
             </Link> 
-            {/* <Link to={`./../mealCard/$props.recipes_id`}>
-                <h1>{props.name} <sup>{props.price}</sup></h1>
-                <p>{props.description}</p>
-                <img src={props.image_url} alt="Product Image"/>
-            </Link> */}
         </div>
         )
     }

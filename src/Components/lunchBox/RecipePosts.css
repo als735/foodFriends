@@ -9,14 +9,15 @@
 .lunchBoxTile{
     font-size: 10pt; 
     width: 300px; 
-    height: 350px; 
-    background-color: #93B7BE; 
+    /* height: 350px;  */
+    background-color: rgb(208, 222, 193); 
     margin: 10px; 
     padding-bottom: 15px; 
 }
 
 .lunchBoxImage {
     margin-left: 30px; 
+    width: 250px; 
 }
 
 .checkBox {
