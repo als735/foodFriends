@@ -2,7 +2,7 @@
   "name": "foodfriends",
   "version": "0.1.0",
   "private": true,
-  "main": "server/index.js",
+  "main": "index.js",
   "proxy": "http://localhost:4011",
   "dependencies": {
     "axios": "^0.19.0",
@@ -22,7 +22,7 @@
     "redux": "^4.0.1"
   },
   "scripts": {
-    "start" : "node server.js", 
+    "start" : "node index.js", 
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

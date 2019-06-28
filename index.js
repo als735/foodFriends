@@ -1,18 +1,16 @@
 require('dotenv').config();
 const express = require('express'); 
 const massive = require('massive'); 
-const axios = require('axios');  
 const authenticate = require("./controller/authController");
 const goals = require("./controller/goalController");
 const recipe = require("./controller/recipeController"); 
 const session = require("express-session");
-const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser'); 
 const cors = require('cors'); 
 const path = require('path'); 
 
 const app = express(); 
-let {SERVER_PORT} = process.env; 
+let {PORT} = process.env; 
 
 app.use(express.json());
 app.use(cors()); 
@@ -62,7 +60,6 @@ app.get('/*', (req, res) => {
       })
 });
 
-  const port = process.env.port || 4011;
-  app.listen(SERVER_PORT, () => {
-      console.log(`Purring on Port ${SERVER_PORT}`); 
+  app.listen(PORT, () => {
+      console.log(`Purring on Port ${PORT}`); 
   }); 
