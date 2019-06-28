@@ -107,14 +107,14 @@ class MealCard extends Component {
                                         <h3 className=''>Yields:{this.state.recipe_yield}</h3>
                                         <h3 className='perServing'> Macros Per Serving</h3>
                                         <h3 className=''>Calories: {this.state.recipe_calories}</h3>
-                                        <h3 className =''>Net Carbs: {this.state.recipe_net_carbs} </h3>
+                                        <h3 className =''>Carbs: {this.state.recipe_net_carbs} </h3>
                                         <h3 className ='' id=''>Protein: {this.state.recipe_protein} </h3>
                                         <h3 className =''>Fat: {this.state.recipe_fat} </h3>
                                     </div>
                                     <div className='usersMealMacros'>
                                         <h2> Daily Remainder:</h2>
                                         <h3 className=''>Calories: {remainderCals}</h3>
-                                        <h3 className =''>Net Carbs: {remainderCarbs}</h3>
+                                        <h3 className =''>Carbs: {remainderCarbs}</h3>
                                         <h3 className ='' id=''>Protein: {remainderProtein}</h3>
                                         <h3 className =''>Fat: {remainderFat}</h3>
                                     </div>

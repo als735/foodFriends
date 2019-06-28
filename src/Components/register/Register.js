@@ -135,7 +135,7 @@ class Register extends Component {
                             </div>
                                 <div>
                                     <label htmlFor="">
-                                        Net Carbs: 
+                                          Carbs: 
                                         <input 
                                             type="text"
                                             name="net_carbs"

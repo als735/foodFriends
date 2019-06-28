@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Auth from "./Components/auth/Auth"; 
 import Goals from "./Components/goals/Goals"; 
-import Grocery from "./Components/grocery/Grocery"; 
+// import Grocery from "./Components/grocery/Grocery"; 
 import Home from "./Components/home/Home"; 
 import LunchBox from "./Components/lunchBox/LunchBox"; 
 import MealCard from "./Components/mealCard/MealCard"; 
@@ -15,7 +15,7 @@ export default (
     <Switch>
         <Route exact path="/" component={Auth}/>
         <Route path="/goals" component={Goals}/>
-        <Route path="/groceryList" component={Grocery}/>
+        {/* <Route path="/groceryList" component={Grocery}/> */}
         <Route path="/home" component={Home}/>
         <Route path="/lunchBox" component={LunchBox}/>
         <Route path="/mealCard/:recipes_id" component={MealCard}/> 

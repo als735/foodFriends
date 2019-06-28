@@ -1,8 +1,6 @@
- 
 import React, { Component } from 'react'
 // import axios from 'axios'; 
 // import { connect } from 'react-redux';
-import Nav from '../nav/Nav' ; 
 import './Grocery.css'; 
 
 class Grocery extends Component {
@@ -25,10 +23,19 @@ class Grocery extends Component {
 
         return (
             <div className='groceryPage'>
-                 {this.props.location.pathname !== '/' ? <Nav/> : ' '}
+                <div className='groceryBox'>
+                    <div className='groceryList'>
+                        Grocery List: 
+sdfljsjlkdfsjlsdkjlsdkjlsdjlksdf
+sfdljkskljsdfjklfjklsd
+dsfljsjklsdfkljdsfsdfljsjlkdfsjlsdkjlsdkjlsdjlksdf
+sfdljkskljsdfjklfjklsd
+dsfljsjklsdfkljdsfsdfljsjlkdfsjlsdkjlsdkjlsdjlksdf
+sfdljkskljsdfjklfjklsd
+dsfljsjklsdfkljdsf
 
-                Groceries  
-
+                    </div>
+                </div>
             </div>
         )
     }

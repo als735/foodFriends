@@ -44,7 +44,7 @@ class Header extends Component {
                             <img className='logout' src={navieOut} alt="" onClick={this.logout}/>
                             </Link>
                     </div>
-                <h1 id="header1"> Friends <i>with</i> Food</h1>
+                <h1 id="header1"> <i>F</i>riends <i>with</i> <i>F</i>ood</h1>
                 </div> 
  
             </div>

@@ -88,7 +88,7 @@ console.log(this.props, 'props')
                 <div className='macroLabels'>
                     <h2 className="macroLabelsCals">Calories
                     </h2>
-                    <h2 className="macroLabelsCarbs">Net Carbs</h2>
+                    <h2 className="macroLabelsCarbs">Carbs</h2>
                     <h2 className="macroLabelsProtein">Protein</h2>
                     <h2 className="macroLabelsFat">Fat</h2>
                 </div>
@@ -111,7 +111,7 @@ console.log(this.props, 'props')
                         <button className='editButtons' onClick={() => {this.updateMacros('calories')}}>Edit</button>
                     </div>
                     <div>
-                        <label htmlFor="" className='netCarbsEditMacros'> Net Carbs
+                        <label htmlFor="" className='netCarbsEditMacros'> Carbs
                         <input 
                             type="text" 
                             name="net_carbs"
