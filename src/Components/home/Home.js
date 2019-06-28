@@ -49,6 +49,16 @@ class Home extends Component {
                     <b><i>F</i>riends</b> <i>with</i> <i>F</i>ood promotes a healthy, relationship to food through its plain use of the main nutrtional macro compoents <i>Calories, Carbs, Fat, and Protein</i>. By focusing on these main macros you can begin to develop a simple relationship with the food you are eating. So that you too can become <i>F</i>riends <i>with</i> <i>F</i>ood.
                     </p>
                 </div>
+                <div>
+                    <h1 className='lifeTitle'>Life Goals</h1>
+                <div className='lifeGoalsBox'>
+                    <textarea name="lifeGoals" id="" onChange={this.handleInputChange} className='lifeGoalsBox'></textarea>
+                        <div className='goalButtonBox'>
+                            <button className='addGoalsButton'>Add</button>
+                            <button className='deleteGoalsButton'>Delete</button>
+                        </div>
+                </div>
+                </div>
             </div>
         </div>
         )

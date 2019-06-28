@@ -1,13 +1,20 @@
-.colorBlock {
+/* .colorBlock {
     background-color: #B6C197;  
     width: 100%; 
-    height: 20px; 
-}
-
+    height: 50px; 
+} */
+ 
 .colorBlock2 {
     background-color: white;  
     width: 100%; 
-    height: 5px;
+    height: 15px;
+}
+
+.colorBlock3 {
+    background-color: white;  
+    width: 100%; 
+    height: 15px;
+    margin-top: 20px; 
 }
 
 .registerPage {
@@ -28,16 +35,25 @@
 #headerReg {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 85pt;
-    margin-left: 175px; 
+    margin-left: 50px; 
     margin-top: 20px; 
-    padding-top: 5px; 
+    padding-top: 25px; 
 }
 
 #regTitle {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 50pt; 
     margin-left: 100px; 
-    color: white; 
+    color: #D5C7BC; 
+}
+
+.introHReg {
+    margin-left: 100px; 
+}
+
+.introPReg {
+    margin-left: 100px; 
+    width: 650px; 
 }
 
 .registerMain{
@@ -51,6 +67,8 @@
     margin-top: 50px; 
     margin-left: 50px;
     background-color: #B6C197; 
+    -webkit-box-shadow: 0 0 20px #333;
+    box-shadow: 0 0 20px #333;
 }
 
 .userInfoTitle{
@@ -66,7 +84,7 @@
     outline: 3px solid white;
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2);  
     color: black;
-    background-color: #93B7BE; 
+    background-color: rgb(189, 213, 218); 
 }
 
 .usersMacros {
@@ -79,7 +97,7 @@
       margin-bottom: 20px; 
       box-shadow: 10px 0 20px 0 rgba(0,0,0,.1), 5px 0 5px rgba(0,0,0,.2);  
       color: black;
-      background-color: #93B7BE; 
+      background-color: rgb(189, 213, 218); 
 }
 
 h2 {

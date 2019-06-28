@@ -174,13 +174,6 @@ console.log(this.props, 'props')
                         <button className='editButtons' onClick={() => {this.updateWeight('goal_weight')}}>Edit</button>
                     </div>
                 </div>
-                <div className='lifeGoalsBox'>
-                    <textarea name="lifeGoals" id="" onChange={this.handleInputChange} className='lifeGoalsBox'></textarea>
-                        <div className='goalButtonBox'>
-                            <button className='addGoalsButton'>Add</button>
-                            <button className='deleteGoalsButton'>Delete</button>
-                        </div>
-                </div>
             </div>
         </div>
         </div>

@@ -16,9 +16,48 @@
 
 .introH {
         margin-left: 180px; 
+        font-size: 40px; 
 }
 
 .introP {
         margin-left: 200px; 
         width: 650px; 
 }
+
+.lifeGoalsBox { 
+        margin-left: 100px; 
+        width: 600px; 
+        height: 200px; 
+}
+    
+.lifeGoals {
+        width: 100%; 
+        height: 200px; 
+        
+ }
+
+ .lifeTitle {
+        margin-left: 370px; 
+        font-size: 50px; 
+    }
+    
+    .addGoalsButton {
+        margin-top: 5px; 
+        margin-left: 600px; 
+        height: 30px;
+        margin-bottom: 4px;  
+    }
+    
+    .deleteGoalsButton {
+        margin-top: 5px; 
+        margin-left: 10px; 
+        height: 30px; 
+        width: 60px; 
+    }
+    
+    .goalButtonBox {
+        display: flex; 
+        flex-direction: row;
+        margin-bottom: 200px; 
+        width: 900px; 
+    }
