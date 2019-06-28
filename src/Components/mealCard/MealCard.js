@@ -51,9 +51,9 @@ class MealCard extends Component {
     } 
 
     deleteThisRecipe = () => {
-        debugger; 
+        // debugger; 
         axios.delete(`/api/recipe/delete?recipes_id=${this.props.match.params.recipes_id}`).then(({data}) => {
-            debugger; 
+            // debugger; 
             if (data) {
                 this.props.setRecipe(data.recipes); 
                 this.props.history.push('/home');

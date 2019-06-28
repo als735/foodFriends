@@ -26,7 +26,7 @@ class RecipeForm extends Component {
     }
 
     createMeal = () => {
-        debugger; 
+        // debugger; 
         const mealObj = {
             title: this.state.title,
             recipe_pic : this.state.recipe_pic, 
@@ -39,7 +39,7 @@ class RecipeForm extends Component {
             recipe_yield: this.state.recipe_yield
         }; 
         axios.post('/api/recipe/addRecipe', mealObj).then(({data}) => {
-            debugger; 
+            // debugger; 
             if(data) {
                 this.props.setRecipe(data.recipe);
                 this.props.setIngredients(data.savedIngredients); 
