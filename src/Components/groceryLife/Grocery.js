@@ -10,58 +10,27 @@ class Grocery extends Component {
         grocery_Arr: []
     }; 
 
-
-    groceryPost = () => {
-        debugger; 
-        const groceryObj = {
-            grocery_item: this.state.grocery_item
-        }; 
-        axios.post('/api/groceries/add', groceryObj).then(({data}) => {
-            debugger; 
-            if (data.success) {
-                this.props.setGroceries(data.groceries); 
-            } else {
-                alert('Invalid Entry')
-            }
-        });
-    }; 
-
-    
-
-    handleInputChange= (e) => {
-        const target = e.target; 
-        const value = target.value; 
-        const name = target.name; 
-      
-        this.setState({
-          [name] :value
-        }); 
-      }
+    deleteGroceries = () => {
+        debugger;
+      axios.delete(`/api/groceries/delete?groceries_id=${this.props.groceries_id}`).then(({data}) => {
+          debugger;
+          if (data) {
+              this.props.setGroceries(data.groceries);
+          } else {
+              alert('Could not delete')
+          }
+      })
+  }
  
     render() {
 
         return (
             <div className='groceryPage'>
-                <div className='groceryBox'>
-                    
-                    <div className='groceryList'>
-                        <b>Grocery Shopping List:</b> 
-                    </div>
-                    {this.props.grocery_item}
+                <div>
                     <div>
-                        <input 
-                        type="text"
-                        name='grocery_item'
-                        value={this.state.grocery_item}
-                        onChange={this.handleInputChange}
-                        />
-                    </div>
-                    <div>
-                    </div>
                         {this.props.grocery_item}
-
-                    <button onClick={this.groceryPost}>Add</button>
-                    <button>Remove</button>
+                        <button onClick={ () => {this.deleteGroceries()}}>X</button>
+                    </div>
                 </div>
             </div>
         )

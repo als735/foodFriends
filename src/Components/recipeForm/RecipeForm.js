@@ -49,7 +49,7 @@ class RecipeForm extends Component {
             else {
                 alert('Invalid Meal Card')
             }
-         }); 
+         })
       }; 
     
     handleInputChange= (e) => {
@@ -67,8 +67,14 @@ class RecipeForm extends Component {
           this.setState({
               ingredientArr: [...this.state.ingredientArr, this.state.ingredient]
           }) 
-          console.log(this.state, 'state2'); 
-      }
+          this.clearIngredients(); 
+       }
+
+       clearIngredients = () => {
+            this.setState({
+                ingredient: ''
+            })
+       }
 
 
     render() {

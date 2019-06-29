@@ -7,52 +7,28 @@ import './Life.css';
 class Life extends Component {
     state = {
         life_goal: '',
-        life_Arr: []
+        lifeArr: []
     }; 
 
+deleteLife = () => {
+      debugger;
+    axios.delete(`/api/life/delete?life_id=${this.props.life_id}`).then(({data}) => {
+        debugger;
+        if (data) {
+            this.props.setLife(data.lifeGoals);
+        } else {
+            alert('Could not delete')
+        }
+    })
+}
 
-    lifePost = () => {
-        debugger; 
-        const lifeObj = {
-            life_goal: this.state.life_goal 
-        }; 
-        axios.post('/api/life/add', lifeObj).then(({data}) => {
-            debugger
-            if (data.success) {
-                this.props.setLife(data.life); 
-            } else {
-                alert('Invalid Entry')
-            }
-        });
-    }; 
-
-    handleInputChange= (e) => {
-        const target = e.target; 
-        const value = target.value; 
-        const name = target.name; 
-      
-        this.setState({
-          [name] :value
-        }); 
-      }
  
     render() {
 
         return (
             <div className='lifePage'>
-                <div>
-                    <h1 className='lifeTitle'>Life Goals</h1>
-                <div className='lifeGoalsBox'>
-                    <textarea 
-                    name="life_goal" id="" 
-                    value={this.state.life_goal}
-                    onChange={this.handleInputChange} className='lifeGoalsBox'/>
-                        <div className='goalButtonBox'>
-                            <button onClick={this.lifePost}className='addGoalsButton'>Add</button>
-                            <button className='deleteGoalsButton'>Delete</button>
-                        </div>
-                </div>
-                </div>
+                {this.props.life_goal}
+                <button onClick={ () => {this.deleteLife()}}>Completed</button>
             </div>
         )
     }

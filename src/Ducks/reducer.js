@@ -27,7 +27,7 @@ const weight = (state= {}, action) => {
     } 
 }
 
-const life = (state= {}, action) => {
+const life = (state= [], action) => {
     switch(action.type){
         case 'setLife':
             return action.payload;
@@ -36,7 +36,7 @@ const life = (state= {}, action) => {
     } 
 }
 
-const groceries = (state= {}, action) => {
+const groceries = (state= [], action) => {
     switch(action.type){
         case 'setGroceries':
             return action.payload;

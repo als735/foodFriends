@@ -4,6 +4,9 @@ module.exports = {
         const db = req.app.get('db'); 
         const {grocery_item} = req.body; 
         db.groceries.insert({grocery_item, user_id : session.user.user_id})
+        .then( () => {
+            return db.groceries.find({user_id: session.user.user_id})
+        })
         .then( (groceries) => {
             res.send({success: true, groceries}); 
         }); 
@@ -22,8 +25,13 @@ module.exports = {
     },
 
     deleteGroceries : (req, res, next) => {
+        const {session} = req; 
+
         const db = req.app.get('db'); 
         db.groceries.destroy({groceries_id: req.query.groceries_id})
+            .then(() => {
+                return  db.groceries.find({user_id: session.user.user_id})
+            })
            .then((groceries) => {
                res.send({success: true, groceries});
            })

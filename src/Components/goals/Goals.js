@@ -14,8 +14,7 @@ class Goals extends Component {
         protein : '', 
         fat : '',
         current_weight : '',
-        goal_weight: '',
-        life_goal: '',
+        goal_weight: ''
     }; 
 
 updateMacros = (columnName) => {
@@ -32,6 +31,14 @@ updateMacros = (columnName) => {
             alert('Invalid Update')
         }
         console.log(data.macros, 'data')
+    })
+    .then(() => {
+        this.setState({
+            calories : '',
+            net_carbs : '',
+            protein : '', 
+            fat : ''
+            })
     })
 
 }
@@ -51,7 +58,12 @@ updateWeight = (columnName) => {
         }
         console.log(data.weight, 'data')
     })
-
+    .then(() => {
+        this.setState({
+            current_weight : '',
+            goal_weight: ''
+        })
+    })
 }
 
 

@@ -15,20 +15,59 @@ class Home extends Component {
         grocery_item: '',
         groceryArr: [],
         life_goal: '',
-        life_Arr: []
+        lifeArr: []
     }
 
     componentDidMount(){
         this.groceryGet(); 
+        this.lifeGet(); 
     }
 
+
+    groceryPost = () => {
+        // debugger; 
+        const groceryObj = {
+            grocery_item: this.state.grocery_item
+        }; 
+        axios.post('/api/groceries/add', groceryObj).then(({data}) => {
+            // debugger; 
+            if (data.success) {
+                this.props.setGroceries(data.groceries); 
+            } else {
+                alert('Invalid Entry')
+            }
+        })
+    }; 
+
     groceryGet = () => {
-        debugger; 
+        // debugger; 
         axios.get(`/api/groceries/retrieve/?groceries_id=${this.props.match.params.groceries_id}`).then((res) => {
-            debugger; 
-            this.setState({
-                groceryArr : res.data.groceries
-            })
+            // debugger; 
+            this.props.setGroceries(res.data.groceries);  
+        })
+
+    }
+
+    lifePost = () => {
+        // debugger; 
+        const lifeObj = {
+            life_goal: this.state.life_goal 
+        }; 
+        axios.post('/api/life/add', lifeObj).then(({data}) => {
+            // debugger
+            if (data.success) {
+                this.props.setLife(data.life); 
+            } else {
+                alert('Invalid Entry')
+            }
+        })
+    }; 
+
+    lifeGet = () => {
+        // debugger; 
+        axios.get(`/api/life/retrieve/?life_id=${this.props.match.params.life_id}`).then((res) => {
+            // debugger; 
+            this.props.setLife(res.data.life); 
         })
     }
 
@@ -44,8 +83,12 @@ class Home extends Component {
 
     render() {
 
-        const groceryList = this.state.groceryArr.map((e, i) => {
-            return <Grocery key={i} index={i} grocery_item={e.grocery_item}/>
+        const groceryList = this.props.groceries.map((e, i) => {
+            return <Grocery key={i} index={i} grocery_item={e.grocery_item} groceries_id={e.groceries_id}/>
+        })
+
+        const lifeList = this.props.life.map((e, i) => {
+            return <Life key={i} index={i} life_goal={e.life_goal} life_id={e.life_id}/>
         })
 
         return (
@@ -59,8 +102,21 @@ class Home extends Component {
                 </div>
             </div>
             <div>
-                {groceryList}
-            </div>
+                <div className='groceryBox'>
+                                <b>Grocery Shopping List:</b> 
+                            <div>
+                                <input 
+                                type="text"
+                                name='grocery_item'
+                                value={this.state.grocery_item}
+                                onChange={this.handleInputChange}
+                                />
+                                {groceryList}
+                                <button onClick={this.groceryPost}>Add</button>
+                            </div>
+                    </div>
+
+                </div>
             <div>
                 <div>
                     <h2 className="introH">What is <i>F</i>riends <i>with</i> <i>F</i>ood?</h2>
@@ -74,7 +130,21 @@ class Home extends Component {
                     <b><i>F</i>riends</b> <i>with</i> <i>F</i>ood promotes a healthy, relationship to food through its plain use of the main nutrtional macro compoents <i>Calories, Carbs, Fat, and Protein</i>. By focusing on these main macros you can begin to develop a simple relationship with the food you are eating. So that you too can become <i>F</i>riends <i>with</i> <i>F</i>ood.
                     </p>
                 </div>
-                <Life/>
+                <div>
+                    <h1 className='lifeTitle'>Life Goals</h1>
+                    <div className='lifeList'> 
+                        {lifeList}
+                    </div>
+                <div className='lifeGoalsBox'>
+                    <textarea 
+                    name="life_goal" id="" 
+                    value={this.state.life_goal}
+                    onChange={this.handleInputChange} className='lifeGoalsBox'/>
+                        <div className='goalButtonBox'>
+                            <button onClick={this.lifePost}className='addGoalsButton'>Add</button>
+                        </div>
+                </div>
+                </div>
             </div>
         </div>
         )
