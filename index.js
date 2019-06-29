@@ -5,6 +5,8 @@ const axios = require('axios');
 const authenticate = require("./controller/authController");
 const goals = require("./controller/goalController");
 const recipe = require("./controller/recipeController"); 
+const life = require("./controller/lifeController"); 
+const groceries = require("./controller/groceryController"); 
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser'); 
@@ -54,6 +56,15 @@ app.get('/api/recipe/retrieve', recipe.retrieveRecipes);
 app.delete('/api/recipe/delete', recipe.deleteRecipes);
 app.get('/api/recipe/retrieveOne', recipe.retrieveThisRecipe); 
 
+//grocery endpoints 
+app.post('/api/groceries/add', groceries.addGroceries);
+app.get('/api/groceries/retrieve', groceries.retrieveGroceries);
+app.delete('/api/groceries/delete', groceries.deleteGroceries);
+
+//life endpoints 
+app.post('/api/life/add', life.addLife);
+app.get('/api/life/retrieve', life.retrieveLife);
+app.delete('/api/life/delete', life.deleteLife); 
 
 /// Catch all for routing. Must be below all other routes. 
 app.get('/*', (req, res) => {
