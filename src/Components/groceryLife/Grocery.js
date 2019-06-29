@@ -6,8 +6,10 @@ import './Grocery.css';
 
 class Grocery extends Component {
     state = {
-        grocery_item: ''
+        grocery_item: '',
+        grocery_Arr: []
     }; 
+
 
     groceryPost = () => {
         debugger; 
@@ -45,6 +47,7 @@ class Grocery extends Component {
                     <div className='groceryList'>
                         <b>Grocery Shopping List:</b> 
                     </div>
+                    {this.props.grocery_item}
                     <div>
                         <input 
                         type="text"
@@ -54,8 +57,8 @@ class Grocery extends Component {
                         />
                     </div>
                     <div>
-                        {this.props.grocery_item}
                     </div>
+                        {this.props.grocery_item}
 
                     <button onClick={this.groceryPost}>Add</button>
                     <button>Remove</button>

@@ -4,46 +4,33 @@ import { connect } from 'react-redux';
 import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './Home.css'; 
-import Grocery from '../grocery/Grocery'; 
+import Grocery from '../groceryLife/Grocery'; 
+import Life from '../groceryLife/Life'; 
 import axios from 'axios';
+
  
 class Home extends Component {
    
     state = {
         grocery_item: '',
-        life_goal: ''
+        groceryArr: [],
+        life_goal: '',
+        life_Arr: []
     }
 
-    lifePost = () => {
-        debugger; 
-        const lifeObj = {
-            life_goal: this.state.life_goal 
-        }; 
-        axios.post('/api/life/add', lifeObj).then(({data}) => {
-            debugger
-            if (data.success) {
-                this.props.setLife(data.life); 
-            } else {
-                alert('Invalid Entry')
-            }
-        });
-    }; 
+    componentDidMount(){
+        this.groceryGet(); 
+    }
 
     groceryGet = () => {
         debugger; 
-        axios.get('/api/groceries/retrieve').then(res => {
+        axios.get(`/api/groceries/retrieve/?groceries_id=${this.props.match.params.groceries_id}`).then((res) => {
             debugger; 
-            if(res.data){
-                this.props.setGroceries(res.data.groceries)
-            }
-            else{
-                alert('No Groceries For You!')
-            }
+            this.setState({
+                groceryArr : res.data.groceries
+            })
         })
     }
-
-
-
 
     handleInputChange= (e) => {
         const target = e.target; 
@@ -57,6 +44,10 @@ class Home extends Component {
 
     render() {
 
+        const groceryList = this.state.groceryArr.map((e, i) => {
+            return <Grocery key={i} index={i} grocery_item={e.grocery_item}/>
+        })
+
         return (
         <div>
             <div>
@@ -68,7 +59,7 @@ class Home extends Component {
                 </div>
             </div>
             <div>
-                <Grocery/>
+                {groceryList}
             </div>
             <div>
                 <div>
@@ -83,19 +74,7 @@ class Home extends Component {
                     <b><i>F</i>riends</b> <i>with</i> <i>F</i>ood promotes a healthy, relationship to food through its plain use of the main nutrtional macro compoents <i>Calories, Carbs, Fat, and Protein</i>. By focusing on these main macros you can begin to develop a simple relationship with the food you are eating. So that you too can become <i>F</i>riends <i>with</i> <i>F</i>ood.
                     </p>
                 </div>
-                <div>
-                    <h1 className='lifeTitle'>Life Goals</h1>
-                <div className='lifeGoalsBox'>
-                    <textarea 
-                    name="life_goal" id="" 
-                    value={this.state.life_goal}
-                    onChange={this.handleInputChange} className='lifeGoalsBox'/>
-                        <div className='goalButtonBox'>
-                            <button onClick={this.lifePost}className='addGoalsButton'>Add</button>
-                            <button className='deleteGoalsButton'>Delete</button>
-                        </div>
-                </div>
-                </div>
+                <Life/>
             </div>
         </div>
         )
