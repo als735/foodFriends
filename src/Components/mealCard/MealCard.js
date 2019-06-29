@@ -31,6 +31,7 @@ class MealCard extends Component {
         this.getThisRecipe(); 
     }
 
+
     getThisRecipe = () => {
         //    debugger; 
            axios.get(`/api/recipe/retrieveOne/?recipes_id=${this.props.match.params.recipes_id}`).then((res) => {
@@ -46,9 +47,10 @@ class MealCard extends Component {
                         recipe_fat: res.data.nutrition.recipe_fat,
                         recipe_yield: res.data.nutrition.recipe_yields 
                     })
-                    // console.log(this.state.title, this.state.listOfIngredients, this.state.recipe_calories, 'recipe get data')
         }) 
     } 
+
+
 
     deleteThisRecipe = () => {
         // debugger; 
@@ -66,18 +68,22 @@ class MealCard extends Component {
 
 
     render() {
-        // debugger; 
+        debugger; 
 
         const ingredientsArr = this.state.listOfIngredients.map((e, i) => {
             return <IngredientsList key={i} index={i} ingredient={e.ingredient}/> 
         })
 
+        console.log(this.state, 'state')
+
+        let calories = this.props.macros.calories; 
+        let recipe_calories = this.state.recipe_calories; 
 
 
-        let remainderCals = this.state.calories - this.state.recipe_calories; 
-        let remainderCarbs = this.state.net_carbs - this.state.recipe_net_carbs; 
-        let remainderProtein = this.state.protein - this.state.recipe_protein; 
-        let remainderFat = this.state.fat - this.state.recipe_fat; 
+        let remainderCals = calories - recipe_calories; 
+        let remainderCarbs = this.props.macros.net_carbs - this.state.recipe_net_carbs; 
+        let remainderProtein = this.props.macros.protein - this.state.recipe_protein; 
+        let remainderFat = this.props.macros.fat - this.state.recipe_fat; 
 
         return (
             <div className='mealCardPage'>
