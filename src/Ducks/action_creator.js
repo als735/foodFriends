@@ -27,6 +27,13 @@ export const setLife = (life) => {
     }
 }  
 
+export const setGroceries = (groceries) => {
+    return {
+        type:"setGroceries",
+        payload: groceries, 
+    }
+}  
+
 export const setRecipe = (recipe) => {
     return {
         type:"setRecipe",

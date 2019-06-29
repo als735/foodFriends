@@ -1,15 +1,49 @@
 import React, { Component } from 'react'
 // import axios from 'axios'; 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import * as actions from '../../Ducks/action_creator';
 import Nav from '../nav/Nav' ; 
 import './Home.css'; 
 import Grocery from '../grocery/Grocery'; 
+import axios from 'axios';
  
 class Home extends Component {
-    // constructor(props){
-    //     super(props); 
+   
+    state = {
+        grocery_item: '',
+        life_goal: ''
+    }
 
-    // }
+    lifePost = () => {
+        debugger; 
+        const lifeObj = {
+            life_goal: this.state.life_goal 
+        }; 
+        axios.post('/api/life/add', lifeObj).then(({data}) => {
+            debugger
+            if (data.success) {
+                this.props.setLife(data.life); 
+            } else {
+                alert('Invalid Entry')
+            }
+        });
+    }; 
+
+    groceryGet = () => {
+        debugger; 
+        axios.get('/api/groceries/retrieve').then(res => {
+            debugger; 
+            if(res.data){
+                this.props.setGroceries(res.data.groceries)
+            }
+            else{
+                alert('No Groceries For You!')
+            }
+        })
+    }
+
+
+
 
     handleInputChange= (e) => {
         const target = e.target; 
@@ -52,9 +86,12 @@ class Home extends Component {
                 <div>
                     <h1 className='lifeTitle'>Life Goals</h1>
                 <div className='lifeGoalsBox'>
-                    <textarea name="lifeGoals" id="" onChange={this.handleInputChange} className='lifeGoalsBox'></textarea>
+                    <textarea 
+                    name="life_goal" id="" 
+                    value={this.state.life_goal}
+                    onChange={this.handleInputChange} className='lifeGoalsBox'/>
                         <div className='goalButtonBox'>
-                            <button className='addGoalsButton'>Add</button>
+                            <button onClick={this.lifePost}className='addGoalsButton'>Add</button>
                             <button className='deleteGoalsButton'>Delete</button>
                         </div>
                 </div>
@@ -65,4 +102,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default connect(state => state, actions)(Home);

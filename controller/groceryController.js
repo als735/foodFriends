@@ -4,8 +4,8 @@ module.exports = {
         const db = req.app.get('db'); 
         const {grocery_item} = req.body; 
         db.groceries.insert({grocery_item, user_id : session.user.user_id})
-        .then( (grocery) => {
-            res.send({success: true, grocery}); 
+        .then( (groceries) => {
+            res.send({success: true, groceries}); 
         }); 
     }, 
     retrieveGroceries : (req, res, next) => {

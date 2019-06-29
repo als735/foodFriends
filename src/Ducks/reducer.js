@@ -36,6 +36,15 @@ const life = (state= {}, action) => {
     } 
 }
 
+const groceries = (state= {}, action) => {
+    switch(action.type){
+        case 'setGroceries':
+            return action.payload;
+        default:
+            return state;
+    } 
+}
+
 const recipe = (state= {}, action) => {
     switch(action.type){
         case 'setRecipe':
@@ -63,4 +72,4 @@ const recipeNutrition = (state= {}, action) => {
     } 
 }
 
-export default combineReducers({user, macros, weight, life, recipe, ingredients, recipeNutrition});
+export default combineReducers({user, macros, weight, life, groceries, recipe, ingredients, recipeNutrition});
