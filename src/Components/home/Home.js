@@ -37,6 +37,11 @@ class Home extends Component {
                 alert('Invalid Entry')
             }
         })
+        .then(() => {
+            this.setState({
+                grocery_item: ''
+            })
+        })
     }; 
 
     groceryGet = () => {
@@ -60,6 +65,11 @@ class Home extends Component {
             } else {
                 alert('Invalid Entry')
             }
+        })
+        .then(() => {
+            this.setState({
+                life_goal: ''
+            })
         })
     }; 
 
