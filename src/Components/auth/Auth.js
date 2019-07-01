@@ -50,11 +50,13 @@ class Auth extends Component {
                     {this.props.location.pathname !== '/' ? <Nav/> : ' '}
                             <div className='authieTitleBox'>
                                 <div className='authieTitle'> 
-                                    <h1 className='friendsFood'> <i>F</i>riends <i>with</i> <i>F</i>ood </h1>
+                                    <h1 className='friendsFood'> <i>F</i>riends <i> with </i> <i>F</i>ood </h1>
                                 </div>
                             </div> 
                     <div className='authieBox'>
                         <div>
+                            <h1><i>F</i>riends <i>With</i> <i>F</i>ood</h1>
+                            <br/>
                             <div>
                                 <label htmlFor="">
                                     Email: 

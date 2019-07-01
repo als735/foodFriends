@@ -60,11 +60,11 @@ class Nav extends Component {
                             Lunch Box
                         </Link>
                     </div>
-                    <div>
+                    {/* <div>
                         <Link to='/planning' className='links'>
                             Meal Plan
                         </Link>
-                    </div> 
+                    </div>  */}
 
                     <div className='prof_pic' style={{backgroundImage: prof_pic.yourFace}}/>
                     <div className='listingUser' onClick={this.authMe}>{this.props.user.first_name} {this.props.user.last_name}</div>

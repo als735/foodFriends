@@ -28,7 +28,7 @@ deleteLife = () => {
         return (
             <div className='lifePage'>
                 {this.props.life_goal}
-                <button onClick={ () => {this.deleteLife()}}>Completed</button>
+                <button className='lifeCompleteButt' onClick={ () => {this.deleteLife()}}>Mischief Mannaged!</button>
             </div>
         )
     }

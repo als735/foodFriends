@@ -49,12 +49,12 @@ class Home extends Component {
     }
 
     lifePost = () => {
-        // debugger; 
+        debugger; 
         const lifeObj = {
             life_goal: this.state.life_goal 
         }; 
         axios.post('/api/life/add', lifeObj).then(({data}) => {
-            // debugger
+            debugger
             if (data.success) {
                 this.props.setLife(data.life); 
             } else {
@@ -101,20 +101,25 @@ class Home extends Component {
                     {this.props.location.pathname !== '/' ? <Nav/> : ' '}
                 </div>
             </div>
-            <div>
-                <div className='groceryBox'>
-                                <b>Grocery Shopping List:</b> 
-                            <div>
+            <div className='groceryBox'>
+                <div>
+                            <div className='groceryList'>
+                                <br/>
+                                <b className='groceryTitle'>Grocery Shopping List:</b> 
+                                <br/>
+                                <br/>
+                                <br/>
+                                {groceryList}
                                 <input 
+                                className='groceryInput'
                                 type="text"
                                 name='grocery_item'
                                 value={this.state.grocery_item}
                                 onChange={this.handleInputChange}
                                 />
-                                {groceryList}
-                                <button onClick={this.groceryPost}>Add</button>
+                                <button className='lifeCompleteButt'onClick={this.groceryPost}>Add</button>
                             </div>
-                    </div>
+                </div>
 
                 </div>
             <div>
