@@ -15,6 +15,18 @@ class Auth extends Component {
             password: ''
         
     }; 
+
+    // componentDidMount(){
+    //     // checks to see if middle ware works. 
+    //     axios.get('/api/test')
+    //     .then((response)=>{
+    //         if(response.data.success){
+    //             console.log(response.data.message)
+    //         }else{
+    //             this.props.history.push('/')
+    //         }
+    //     })
+    // }
     
     login = () => { 
         const loginObj = {

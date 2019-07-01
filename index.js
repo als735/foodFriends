@@ -35,6 +35,18 @@ massive(process.env.DATABASE_URL)
     })
     .catch(err => console.log('err in the db'));
 
+//authentication middleware
+
+// app.use('/api/*', (req, res, next) => {
+//     //check to see if user is still logged in. 
+//     if(!req.session.user){
+//         res.send({success:false, message:'please login'})
+//     }else{
+//         next();
+//     }
+
+// })
+
     /// Serves static files (Frontend). Must be above all of the routes.
 app.use(express.static(path.join(__dirname, '/build')));
 
